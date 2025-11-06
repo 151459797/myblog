@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/myblog/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/myblog/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/myblog/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/myblog/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/myblog/css/main.css">
+
+
+<link rel="stylesheet" href="/myblog/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"151459797.github.io","root":"/myblog/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="C# 基于.net的面向对象开发语言  .NETCore与.NETFramework 1.NET Framework 微软开发的运行时环境，主要用于 Windows 平台。它依赖于 Windows 操作系统，与 Windows 系统深度集成。微软已停止更新   2.NET Core  是跨平台的运行时环境，支持 Windows、Linux 和 macOS 等多种操作系统。它通过抽象层来屏蔽不同操作">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C#编程语言">
+<meta property="og:url" content="https://151459797.github.io/myblog/2025/11/06/%E5%90%8E%E7%AB%AF/CSharp/CSharp/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="C# 基于.net的面向对象开发语言  .NETCore与.NETFramework 1.NET Framework 微软开发的运行时环境，主要用于 Windows 平台。它依赖于 Windows 操作系统，与 Windows 系统深度集成。微软已停止更新   2.NET Core  是跨平台的运行时环境，支持 Windows、Linux 和 macOS 等多种操作系统。它通过抽象层来屏蔽不同操作">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-11-06T12:36:11.012Z">
+<meta property="article:modified_time" content="2025-11-06T01:12:29.541Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://151459797.github.io/myblog/2025/11/06/%E5%90%8E%E7%AB%AF/CSharp/CSharp/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>C#编程语言 | Hexo</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/myblog/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Hexo</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/myblog/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/myblog/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://151459797.github.io/myblog/2025/11/06/%E5%90%8E%E7%AB%AF/CSharp/CSharp/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/myblog/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          C#编程语言
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2025-11-06 20:36:11 / 修改时间：09:12:29" itemprop="dateCreated datePublished" datetime="2025-11-06T20:36:11+08:00">2025-11-06</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/myblog/categories/%E5%90%8E%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">后端</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="C"><a href="#C" class="headerlink" title="C#"></a>C#</h1><ul>
+<li>基于.net的面向对象开发语言</li>
+</ul>
+<h1 id="NETCore与-NETFramework"><a href="#NETCore与-NETFramework" class="headerlink" title=".NETCore与.NETFramework"></a>.NETCore与.NETFramework</h1><ul>
+<li>1.NET Framework<ul>
+<li>微软开发的运行时环境，主要用于 Windows 平台。它依赖于 Windows 操作系统，与 Windows 系统深度集成。微软已停止更新</li>
+</ul>
+</li>
+<li>2.NET Core <ul>
+<li>是跨平台的运行时环境，支持 Windows、Linux 和 macOS 等多种操作系统。它通过抽象层来屏蔽不同操作系统之间的差异，使得应用程序可以在不同平台上运行。</li>
+</ul>
+</li>
+</ul>
+<h1 id="编程环境"><a href="#编程环境" class="headerlink" title="编程环境"></a>编程环境</h1><ul>
+<li>1.安装.NET Core(Core自带了SDK和runtime)<ul>
+<li>查看是否安装版本指令：dotnet -h（显示相关版本号）</li>
+</ul>
+</li>
+<li>2.准备开发工具Ide、VisualStudio(微软官方开发工具，更适合C#)<ul>
+<li>以下是各个版本的区别</li>
+<li>isual Studio Community：这是一个免费的版本，适用于个人开发者、学术研究、教室学习和参与开源项目。它提供了完整的集成开发环境，支持Windows桌面、通用Windows应用、Web（ASP.NET）、Office 365、业务应用程序、Azure Stack、C++跨平台库开发、Python、Node.js、.NET Core和Docker工具。</li>
+<li>Visual Studio Professional：这个版本适用于专业开发人员和小型团队，提供了更高级的调试和诊断工具、测试工具、跨平台开发支持和协作工具。它还包括PowerPoint情节提要、代码评审、任务暂停&#x2F;继续和团队资源管理器（第三方开发工具支持）等功能。</li>
+<li>Visual Studio Enterprise：这是最全面的版本，提供了端到端的解决方案，以满足大型团队的严苛质量和规模需求。它包括所有Professional版本的功能，以及更高级的测试工具、协作工具和功能，如Visual Studio Live Share。</li>
+</ul>
+</li>
+</ul>
+<h1 id="编译与执行"><a href="#编译与执行" class="headerlink" title="编译与执行"></a>编译与执行</h1><ul>
+<li>C#代码首先被编译成中间语言（IL），然后在.NET运行时（CLR）中进行即时编译（JIT） </li>
+<li>和java类型预编译运行类似，但C#还会在运行时再即时编译运行</li>
+<li>C#也拥有垃圾自动回收机制，但支持底层开发人员手动操作回收垃圾。</li>
+</ul>
+<h1 id="项目结构"><a href="#项目结构" class="headerlink" title="项目结构"></a>项目结构</h1><ul>
+<li>依赖项:应用编译、构建、开发时的依赖项SDK</li>
+<li>Properties：.netCore项目的存放的配置信息，通过.json格式存放<ul>
+<li>launchSettings.json:.netCore应用标准配置文件，包含环境变量、ip端口等</li>
+</ul>
+</li>
+<li>wwwroot：网站根目录，存放前端静态资源，html、js、图片等。</li>
+<li>Program.cs:.netCore应用的main方法，是项目启动的入口，负责配置和启动程序</li>
+<li>Startup类:在.net5之后被废弃（原来的项目启动入口）</li>
+</ul>
+<h1 id="net-Web项目启动流程"><a href="#net-Web项目启动流程" class="headerlink" title=".net Web项目启动流程"></a>.net Web项目启动流程</h1><ul>
+<li><p>1.运行时初始化</p>
+<ul>
+<li>1.1 加载.net进程，管理内存、执行代码、处理异常等核心功能</li>
+<li>2.1 加载程序集：运行时加载项目中引用的程序集（如依赖的库文件），并解析依赖关系。</li>
+<li>3.1 初始化配置系统：运行时会解析配置文件（如appsettings.json），并初始化配置系统。</li>
+</ul>
+</li>
+<li><p>2.执行Program文件、文件内：1.构建宿主（Host）2. 配置服务 3. 构建应用程序 4.配置中间件管道 5.启动应用程序</p>
+</li>
+<li><p>3.初始化宿主（Host）WebApplication.CreateBuilder(args)</p>
+<ul>
+<li>3.1 Program代码中:WebApplication.CreateBuilder(args);宿主构建的起点。</li>
+<li>3.2 CreateBuilder方法会初始化一个宿主构建器（HostBuilder），并配置默认的服务、配置源和日志提供者。<ul>
+<li>3.2.1 加载默认的配置文件（如appsettings.json）。</li>
+<li>3.2.2 初始化依赖注入容器,Ioc容器依赖注入</li>
+<li>3.2.3 配置日志系统。</li>
+<li>3.2.4 宿主生命周期管理服务：用于管理应用程序的启动和关闭过程。</li>
+<li>3.2.5 其他基础服务：如IOptions、IConfiguration等。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>4 添加服务</p>
+<ul>
+<li>4.1 builder.Services.AddControllers();微软配置默认服务:注册了MVC控制器。</li>
+<li>4.2 builder.Services.AddEndpointsApiExplorer();微软配置默认服务:注册了端点API资源，这是Swagger&#x2F;OpenAPI支持的基础。</li>
+<li>4.3 builder.Services.AddSwaggerGen();注册了Swagger生成器，用于生成OpenAPI文档。</li>
+</ul>
+</li>
+<li><p>5 构建宿主（Host）</p>
+<ul>
+<li>5.4.1 Program执行到：var app &#x3D; builder.Build();这一行代码完成了宿主的构建过程。</li>
+<li>5.4.2 Build方法内做的事情<ul>
+<li>5.4.2.1 构建依赖注入容器。</li>
+<li>5.4.2.2 为后续项目根据自己需求，微软会默认初始化一个空的中间件管道。</li>
+<li>5.4.2.3 初始化日志系统和其他基础设施。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>6.构配置中间件管道</p>
+<ul>
+<li>根据项目需求增加自定义管道</li>
+<li>以下是微软默认提供可自主配置的管道</li>
+<li>异常处理中间件<ul>
+<li><figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app.UseDeveloperExceptionPage()<span class="comment">; </span></span><br></pre></td></tr></table></figure>在开发环境中显示详细的错误信息。</li>
+<li><figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">app.UseEndpoints(</span><br><span class="line">    endpoints <span class="operator">=</span>&gt;&#123;</span><br><span class="line">        endpoints.MapControllers()<span class="comment">;</span></span><br><span class="line">        endpoints.MapRazorPages()<span class="comment">;</span></span><br><span class="line">    &#125;)<span class="comment">;</span></span><br></pre></td></tr></table></figure> 捕获异常并返回友好的错误页面或错误信息。</li>
+</ul>
+</li>
+<li>身份验证和授权<ul>
+<li><figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app.UseAuthentication()<span class="comment">;</span></span><br></pre></td></tr></table></figure> 提供身份验证支持，如JWT、Cookie等。</li>
+<li><figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app.UseAuthorization()<span class="comment">;</span></span><br></pre></td></tr></table></figure> 提供授权支持，用于检查用户权限。</li>
+</ul>
+</li>
+<li>跨域资源共享（CORS）<ul>
+<li><figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app.UseCors()<span class="comment">;</span></span><br></pre></td></tr></table></figure> 配置跨域资源共享，允许或限制外部域对API的访问。</li>
+</ul>
+</li>
+<li>静态文件服务<ul>
+<li><figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app.UseStaticFiles()<span class="comment">;</span></span><br></pre></td></tr></table></figure> 提供静态文件（如HTML、CSS、JavaScript）的访问支持。</li>
+</ul>
+</li>
+<li>路由和端点<ul>
+<li><figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app.UseRouting()<span class="comment">;</span></span><br></pre></td></tr></table></figure> 定义请求的路由规则。</li>
+</ul>
+</li>
+<li>HTTPS重定向<ul>
+<li><figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app.UseHttpsRedirection()<span class="comment">;</span></span><br></pre></td></tr></table></figure> 将所有HTTP请求重定向到HTTPS。</li>
+</ul>
+</li>
+<li>压缩响应<ul>
+<li><figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app.UseResponseCompression()<span class="comment">;</span></span><br></pre></td></tr></table></figure> 对响应内容进行压缩，减少传输数据量。</li>
+</ul>
+</li>
+<li>请求本地化<ul>
+<li><figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app.UseRequestLocalization()<span class="comment">;</span></span><br></pre></td></tr></table></figure> 提供本地化支持，根据用户语言偏好返回本地化内容。</li>
+</ul>
+</li>
+<li>会话管理<ul>
+<li><figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app.UseSession()<span class="comment">;</span></span><br></pre></td></tr></table></figure> 管理用户会话，存储用户会话数据。</li>
+</ul>
+</li>
+<li>WebSockets支持<ul>
+<li><figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app.UseWebSockets()<span class="comment">;</span></span><br></pre></td></tr></table></figure> 启用WebSockets协议，支持实时通信。</li>
+</ul>
+</li>
+<li>健康检查<ul>
+<li><figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app.UseHealthChecks(<span class="string">&quot;/health&quot;</span>)<span class="comment">;</span></span><br></pre></td></tr></table></figure> 检查应用程序及其依赖项的运行状态。</li>
+</ul>
+</li>
+<li>URL重写<ul>
+<li><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">app</span><span class="selector-class">.UseRewriter</span>(</span><br><span class="line">    new <span class="built_in">RewriteOptions</span>().<span class="built_in">AddRedirect</span>(<span class="string">&quot;old-path&quot;</span>, <span class="string">&quot;new-path&quot;</span>)</span><br><span class="line">);</span><br></pre></td></tr></table></figure> 重写URL或重定向请求，用于SEO优化或路由调整。</li>
+</ul>
+</li>
+<li>日志记录<ul>
+<li><figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app.UseLogging()<span class="comment">;</span></span><br></pre></td></tr></table></figure> 记录请求和响应的详细信息，用于调试和监控。</li>
+</ul>
+</li>
+<li>单页应用程序（SPA）支持<ul>
+<li><figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">app.UseSpa(spa <span class="operator">=</span>&gt;&#123;</span><br><span class="line">    spa.Options.SourcePath <span class="operator">=</span> <span class="string">&quot;ClientApp&quot;</span><span class="comment">;</span></span><br><span class="line">&#125;)<span class="comment">;</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li>其他中间件<ul>
+<li><figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app.UseCookiePolicy()<span class="comment">;</span></span><br></pre></td></tr></table></figure> 管理Cookie策略，确保Cookie的安全性。</li>
+<li><figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app.UseResponseCaching()<span class="comment">;</span></span><br></pre></td></tr></table></figure> 提供响应缓存支持，提高性能。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>7.启动应用程序</p>
+<ul>
+<li>7.1 app.Run();<ul>
+<li>7.1.1 启动Kestrel服务器，且开始根据配置的端口监听请求</li>
+<li>7.1.2 运行中间件管道：HTTP请求会按照中间件管道中配置的顺序被处理。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="委托"><a href="#委托" class="headerlink" title="委托"></a>委托</h1><ul>
+<li>C#中实现方法引用和回调机制的核心类型，类似于Java中的函数式接口</li>
+<li>定义：委托是一种类型安全的函数指针，它定义了方法的签名（参数和返回类型），可以指向任何符合签名的方法。</li>
+<li>核心作用：<ul>
+<li>将方法作为参数传递（如回调）。</li>
+<li>实现事件驱动编程（如按钮点击事件）。</li>
+<li>解耦调用方与具体实现（如插件架构）。</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/myblog/2025/11/06/%E5%90%8E%E7%AB%AF/JAVA/SpringCloud/" rel="prev" title="SpringCloud">
+      <i class="fa fa-chevron-left"></i> SpringCloud
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/myblog/2025/11/06/%E5%90%8E%E7%AB%AF/CSharp/EFCore/" rel="next" title="EFCore">
+      EFCore <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#C"><span class="nav-number">1.</span> <span class="nav-text">C#</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#NETCore%E4%B8%8E-NETFramework"><span class="nav-number">2.</span> <span class="nav-text">.NETCore与.NETFramework</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BC%96%E7%A8%8B%E7%8E%AF%E5%A2%83"><span class="nav-number">3.</span> <span class="nav-text">编程环境</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BC%96%E8%AF%91%E4%B8%8E%E6%89%A7%E8%A1%8C"><span class="nav-number">4.</span> <span class="nav-text">编译与执行</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84"><span class="nav-number">5.</span> <span class="nav-text">项目结构</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#net-Web%E9%A1%B9%E7%9B%AE%E5%90%AF%E5%8A%A8%E6%B5%81%E7%A8%8B"><span class="nav-number">6.</span> <span class="nav-text">.net Web项目启动流程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A7%94%E6%89%98"><span class="nav-number">7.</span> <span class="nav-text">委托</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">John Doe</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/myblog/archives/">
+        
+          <span class="site-state-item-count">29</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/myblog/lib/anime.min.js"></script>
+  <script src="/myblog/lib/pjax/pjax.min.js"></script>
+  <script src="/myblog/lib/velocity/velocity.min.js"></script>
+  <script src="/myblog/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/myblog/js/utils.js"></script>
+
+<script src="/myblog/js/motion.js"></script>
+
+
+<script src="/myblog/js/schemes/muse.js"></script>
+
+
+<script src="/myblog/js/next-boot.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+
+    </div>
+</body>
+</html>

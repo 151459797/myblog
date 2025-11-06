@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/myblog/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/myblog/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/myblog/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/myblog/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/myblog/css/main.css">
+
+
+<link rel="stylesheet" href="/myblog/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"151459797.github.io","root":"/myblog/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="理解1、2、3级缓存和实战 原理参考文档 实战参考文档  缓存执行过程  3级缓存（自定义应用级缓存）：redis\Ehcache 因为二级缓存和一级缓存只适合单机单服务器的情况，针对集群或分布式就提供了自定义应用级缓存的方式解决 Ehcache是进程内缓存（JVM堆内存&#x2F;堆外内存+本地磁盘）很多缓存都存储在本地服务器中，所以更适合本地单机的服务器用作2级缓存 redis虽然本地没有E">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mybatis缓存">
+<meta property="og:url" content="https://151459797.github.io/myblog/2025/11/06/%E5%90%8E%E7%AB%AF/JAVA/Mybatis%E7%BC%93%E5%AD%98/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="理解1、2、3级缓存和实战 原理参考文档 实战参考文档  缓存执行过程  3级缓存（自定义应用级缓存）：redis\Ehcache 因为二级缓存和一级缓存只适合单机单服务器的情况，针对集群或分布式就提供了自定义应用级缓存的方式解决 Ehcache是进程内缓存（JVM堆内存&#x2F;堆外内存+本地磁盘）很多缓存都存储在本地服务器中，所以更适合本地单机的服务器用作2级缓存 redis虽然本地没有E">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-11-06T12:36:10.969Z">
+<meta property="article:modified_time" content="2025-11-06T01:12:29.545Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://151459797.github.io/myblog/2025/11/06/%E5%90%8E%E7%AB%AF/JAVA/Mybatis%E7%BC%93%E5%AD%98/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Mybatis缓存 | Hexo</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/myblog/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Hexo</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/myblog/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/myblog/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://151459797.github.io/myblog/2025/11/06/%E5%90%8E%E7%AB%AF/JAVA/Mybatis%E7%BC%93%E5%AD%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/myblog/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Mybatis缓存
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2025-11-06 20:36:10 / 修改时间：09:12:29" itemprop="dateCreated datePublished" datetime="2025-11-06T20:36:10+08:00">2025-11-06</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/myblog/categories/%E5%90%8E%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">后端</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <ul>
+<li><p>理解1、2、3级缓存和实战 <a target="_blank" rel="noopener" href="https://www.cnblogs.com/cxuanBlog/p/11324034.html">原理参考文档</a> <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/23650823064">实战参考文档</a></p>
+</li>
+<li><p>缓存执行过程</p>
+<ul>
+<li>3级缓存（自定义应用级缓存）：redis\Ehcache<ul>
+<li>因为二级缓存和一级缓存只适合单机单服务器的情况，针对集群或分布式就提供了自定义应用级缓存的方式解决</li>
+<li>Ehcache是进程内缓存（JVM堆内存&#x2F;堆外内存+本地磁盘）很多缓存都存储在本地服务器中，所以更适合本地单机的服务器用作2级缓存</li>
+<li>redis虽然本地没有Ehcache响应，但独立内存数据库，跨进程共享，且redis本身就支持分布式、哨兵等，所以更适合分布式和集群的缓存</li>
+</ul>
+</li>
+<li>2级缓存:同一Mapper共享<ul>
+<li>2级缓存相关配置参考说明 <a target="_blank" rel="noopener" href="https://mybatis.net.cn/sqlmap-xml.html#cache">官服文档</a></li>
+</ul>
+</li>
+<li>1级缓存:同一session时</li>
+<li>最终db数据库执行sql<table><tr><th>缓存级别</th><th>作用域</th><th>生命周期</th><th>开启方式</th></tr><tr><td>一级缓存</td><td><span>SqlSession</span>级别</td><td>会话级（请求级）</td><td>默认开启</td></tr><tr><td>二级缓存</td><td>Mapper级别</td><td>应用级（跨会话）</td><td>需显式配置</td></tr><tr><td>三级缓存</td><td>应用集群级</td><td>分布式环境</td><td>需集成第三方</td></tr></table></li>
+</ul>
+</li>
+<li><p>1级缓存 session级别缓存</p>
+<ul>
+<li>在同一个session中执行sql后会缓存执行的sql和结果</li>
+<li><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">try(SqlSession <span class="keyword">session</span> = sqlSessionFactory.openSession())&#123;</span><br><span class="line">    UserMapper mapper =  <span class="keyword">session</span>.getMapper(UserMapper.<span class="keyword">class</span>);</span><br><span class="line">    <span class="keyword">System</span>.<span class="keyword">out</span>.println(&quot;查询时间1开始:&quot;+<span class="keyword">System</span>.currentTimeMillis());</span><br><span class="line">    List&lt;<span class="keyword">User</span>&gt; userList = mapper.getUserList();</span><br><span class="line">    <span class="keyword">System</span>.<span class="keyword">out</span>.println(&quot;查询时间1结束:&quot;+<span class="keyword">System</span>.currentTimeMillis());</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">User</span> <span class="keyword">user</span> : userList) &#123;</span><br><span class="line">        <span class="keyword">System</span>.<span class="keyword">out</span>.println(<span class="keyword">user</span>.getId()+&quot;:&quot;+<span class="keyword">user</span>.getUsername());</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">System</span>.<span class="keyword">out</span>.println(&quot;查询时间2开始:&quot;+<span class="keyword">System</span>.currentTimeMillis());</span><br><span class="line">    List&lt;<span class="keyword">User</span>&gt; userList2 = mapper.getUserList();</span><br><span class="line">    <span class="keyword">System</span>.<span class="keyword">out</span>.println(&quot;查询时间2结束:&quot;+<span class="keyword">System</span>.currentTimeMillis());</span><br><span class="line">    <span class="keyword">if</span>(userList==userList2)&#123;</span><br><span class="line">        <span class="keyword">System</span>.<span class="keyword">out</span>.println(&quot;缓存命中&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">//执行结果</span><br><span class="line">//查询时间<span class="number">1</span>开始:<span class="number">1753322770960</span></span><br><span class="line">//查询时间<span class="number">1</span>结束:<span class="number">1753322771130</span></span><br><span class="line">//查询时间<span class="number">2</span>开始:<span class="number">1753322771135</span></span><br><span class="line">//查询时间<span class="number">2</span>结束:<span class="number">1753322771135</span></span><br><span class="line">//缓存命中</span><br><span class="line">    </span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>2级缓存 Mapper级别的共享缓存</p>
+<ul>
+<li>Step1：全局启用缓存  <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">settings</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">setting</span> <span class="attr">name</span>=<span class="string">&quot;cacheEnabled&quot;</span> <span class="attr">value</span>=<span class="string">&quot;true&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">settings</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li>Step2：Mapper文件声明缓存  <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">mapper</span> <span class="attr">namespace</span>=<span class="string">&quot;com.user.mapper.UserMapper&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">cache</span></span></span><br><span class="line"><span class="tag">            <span class="attr">eviction</span>=<span class="string">&quot;FIFO&quot;</span></span></span><br><span class="line"><span class="tag">            <span class="attr">flushInterval</span>=<span class="string">&quot;600000&quot;</span></span></span><br><span class="line"><span class="tag">            <span class="attr">size</span>=<span class="string">&quot;512&quot;</span></span></span><br><span class="line"><span class="tag">            <span class="attr">readOnly</span>=<span class="string">&quot;true&quot;</span>/&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 通用查询结果列 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">sql</span> <span class="attr">id</span>=<span class="string">&quot;Base_Column_List&quot;</span>&gt;</span></span><br><span class="line">        id, username, password, email, phone, status, create_time, update_time</span><br><span class="line">    <span class="tag">&lt;/<span class="name">sql</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">&quot;getUserList&quot;</span> <span class="attr">resultType</span>=<span class="string">&quot;com.user.entity.User&quot;</span> <span class="attr">useCache</span>=<span class="string">&quot;true&quot;</span> &gt;</span></span><br><span class="line">        select <span class="tag">&lt;<span class="name">include</span> <span class="attr">refid</span>=<span class="string">&quot;Base_Column_List&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">include</span>&gt;</span>  from user</span><br><span class="line">    <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mapper</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li>测试代码  <figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">List&lt;User&gt; userList;</span><br><span class="line">List&lt;User&gt; userList2;</span><br><span class="line"><span class="keyword">try</span>(SqlSession session = sqlSessionFactory.openSession())&#123;</span><br><span class="line">    System.out.<span class="keyword">println</span>(<span class="string">&quot;session&quot;</span>);</span><br><span class="line">    UserMapper mapper =  session.getMapper(UserMapper.<span class="keyword">class</span>);</span><br><span class="line">    System.out.<span class="keyword">println</span>(<span class="string">&quot;查询时间1开始:&quot;</span>+System.currentTimeMillis());</span><br><span class="line">    userList = mapper.getUserList();</span><br><span class="line">    System.out.<span class="keyword">println</span>(<span class="string">&quot;userList长度:&quot;</span>+userList.<span class="keyword">size</span>());</span><br><span class="line">    System.out.<span class="keyword">println</span>(<span class="string">&quot;查询时间1结束:&quot;</span>+System.currentTimeMillis());</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">try</span>(SqlSession session2 = sqlSessionFactory.openSession())&#123;</span><br><span class="line">    System.out.<span class="keyword">println</span>(<span class="string">&quot;session2&quot;</span>);</span><br><span class="line">    UserMapper mapper =  session2.getMapper(UserMapper.<span class="keyword">class</span>);</span><br><span class="line">    System.out.<span class="keyword">println</span>(<span class="string">&quot;查询时间2开始:&quot;</span>+System.currentTimeMillis());</span><br><span class="line">    userList2 = mapper.getUserList();</span><br><span class="line">    System.out.<span class="keyword">println</span>(<span class="string">&quot;userList2长度:&quot;</span>+userList2.<span class="keyword">size</span>());</span><br><span class="line">    System.out.<span class="keyword">println</span>(<span class="string">&quot;查询时间2结束:&quot;</span>+System.currentTimeMillis());</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span> (userList==userList2)&#123;</span><br><span class="line">    System.out.<span class="keyword">println</span>(<span class="string">&quot;二级缓存命中&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//测试结果</span></span><br><span class="line"><span class="comment">//session</span></span><br><span class="line"><span class="comment">//查询时间1开始:1753328802014</span></span><br><span class="line"><span class="comment">//userList长度:72</span></span><br><span class="line"><span class="comment">//查询时间1结束:1753328802125</span></span><br><span class="line"><span class="comment">//session2</span></span><br><span class="line"><span class="comment">//查询时间2开始:1753328802126</span></span><br><span class="line"><span class="comment">//userList2长度:72</span></span><br><span class="line"><span class="comment">//查询时间2结束:1753328802126</span></span><br><span class="line"><span class="comment">//二级缓存命中</span></span><br><span class="line">    </span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>3级缓存</p>
+<ul>
+<li>本质上是实现了org.apache.ibatis.cache.Cache 接口的2级缓存，<ul>
+<li>这个接口定义了缓存的基本操作：putObject, getObject, removeObject, clear, getSize, getReadWriteLock，</li>
+</ul>
+</li>
+<li>值得注意的是RedisCache二级缓存响应的是redis库中的数据，返回的实体不能用’&#x3D;&#x3D;’判断，因为实体在内存中不是同一个<ul>
+<li>查询结果会存在redis中用hash命名实体,key(时间戳+全路径实体名+sql):value(sql结果)</li>
+</ul>
+</li>
+<li>Ehcache则可以用’&#x3D;&#x3D;’判断,获取到的二级缓存是同一个  <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">//mapper文件</span><br><span class="line"><span class="tag">&lt;<span class="name">mapper</span> <span class="attr">namespace</span>=<span class="string">&quot;com.user.mapper.UserMapper&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">cache</span>  <span class="attr">type</span>=<span class="string">&quot;org.mybatis.caches.ehcache.EhcacheCache&quot;</span> /&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 或 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">cache</span> <span class="attr">type</span>=<span class="string">&quot;org.mybatis.caches.redis.RedisCache&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mapper</span>&gt;</span></span><br><span class="line"></span><br><span class="line">// application文件 </span><br><span class="line"></span><br><span class="line">//开启缓存</span><br><span class="line">//mybatis-plus.configuration.cache-enabled=true</span><br><span class="line"></span><br><span class="line">//redis 配置</span><br><span class="line">//redis.host=localhost</span><br><span class="line">//redis.port=6379</span><br><span class="line">//redis.connectionTimeout=5000</span><br><span class="line">//redis.password=</span><br><span class="line">//redis.database=0</span><br><span class="line"></span><br><span class="line">//pom文件</span><br><span class="line">    <span class="comment">&lt;!-- mybatis cache --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.mybatis.caches<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mybatis-ehcache<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.2.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- ehcache --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.ehcache<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>ehcache<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.8.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- redis --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>redis.clients<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jedis<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.7.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- mybatis redis --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.mybatis.caches<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mybatis-redis<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0.0-beta2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li>测试响应  <figure class="highlight ceylon"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">        List&lt;User&gt; userList;</span><br><span class="line">        List&lt;User&gt; userList<span class="number">2</span>;</span><br><span class="line">        <span class="keyword">try</span>(SqlSession session = sqlSessionFactory.openSession())&#123;</span><br><span class="line">            UserMapper mapper =  session.getMapper(UserMapper.<span class="keyword">class</span>);</span><br><span class="line">            System.<span class="keyword">out</span>.println(<span class="string">&quot;查询时间1开始:&quot;</span>+System.currentTimeMillis());</span><br><span class="line">            userList = mapper.getUserList();</span><br><span class="line">            System.<span class="keyword">out</span>.println(<span class="string">&quot;查询时间1结束:&quot;</span>+System.currentTimeMillis());</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">try</span>(SqlSession session<span class="number">2</span> = sqlSessionFactory.openSession())&#123;</span><br><span class="line">            UserMapper mapper =  session<span class="number">2</span>.getMapper(UserMapper.<span class="keyword">class</span>);</span><br><span class="line">            System.<span class="keyword">out</span>.println(<span class="string">&quot;查询时间2开始:&quot;</span>+System.currentTimeMillis());</span><br><span class="line">            userList<span class="number">2</span> = mapper.getUserList();</span><br><span class="line">            System.<span class="keyword">out</span>.println(<span class="string">&quot;查询时间2结束:&quot;</span>+System.currentTimeMillis());</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (userList==userList<span class="number">2</span>)&#123;</span><br><span class="line">            System.<span class="keyword">out</span>.println(<span class="string">&quot;二级缓存命中&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line"><span class="comment">//reids测试结果 </span></span><br><span class="line"><span class="comment">//查询时间1开始:1753351457712</span></span><br><span class="line"><span class="comment">//查询时间1结束:1753351457825</span></span><br><span class="line"><span class="comment">//查询时间2开始:1753351457828</span></span><br><span class="line"><span class="comment">//查询时间2结束:1753351457829</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//Ehcache测试结果</span></span><br><span class="line"><span class="comment">//查询时间1开始:1753352167864</span></span><br><span class="line"><span class="comment">//查询时间1结束:1753352167972</span></span><br><span class="line"><span class="comment">//查询时间2开始:1753352167974</span></span><br><span class="line"><span class="comment">//查询时间2结束:1753352167974</span></span><br><span class="line"><span class="comment">//二级缓存命中</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/myblog/2025/11/06/%E5%90%8E%E7%AB%AF/JAVA/Hibernate/" rel="prev" title="Hibernate">
+      <i class="fa fa-chevron-left"></i> Hibernate
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/myblog/2025/11/06/%E5%90%8E%E7%AB%AF/JAVA/SpinrgMVC/" rel="next" title="SrpingMVC">
+      SrpingMVC <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">John Doe</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/myblog/archives/">
+        
+          <span class="site-state-item-count">29</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/myblog/lib/anime.min.js"></script>
+  <script src="/myblog/lib/pjax/pjax.min.js"></script>
+  <script src="/myblog/lib/velocity/velocity.min.js"></script>
+  <script src="/myblog/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/myblog/js/utils.js"></script>
+
+<script src="/myblog/js/motion.js"></script>
+
+
+<script src="/myblog/js/schemes/muse.js"></script>
+
+
+<script src="/myblog/js/next-boot.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+
+    </div>
+</body>
+</html>
