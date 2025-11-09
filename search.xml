@@ -2924,8 +2924,14 @@ box-shadow: 0 0 15px rgba(0,0,0,0.15);">
     <title>Swagger</title>
     <url>/myblog/2025/11/09/%E5%90%8E%E7%AB%AF/JAVA/Swagger/</url>
     <content><![CDATA[<h1 id="swagger是一种用于描述RestFul-Api的规范，它提供了一种简单的来描述API的请求和相应参数、错误码、返回数据类型等信息，是开发者可以方便了解API使用方式。"><a href="#swagger是一种用于描述RestFul-Api的规范，它提供了一种简单的来描述API的请求和相应参数、错误码、返回数据类型等信息，是开发者可以方便了解API使用方式。" class="headerlink" title="swagger是一种用于描述RestFul Api的规范，它提供了一种简单的来描述API的请求和相应参数、错误码、返回数据类型等信息，是开发者可以方便了解API使用方式。"></a><a href="https://www.runoob.com/swagger/swagger-codegen.html">swagger</a>是一种用于描述RestFul Api的规范，它提供了一种简单的来描述API的请求和相应参数、错误码、返回数据类型等信息，是开发者可以方便了解API使用方式。</h1><ul>
-<li>OpenAPI 始于 Swagger 规范，Swagger 规范已于 2015 年捐赠给 Linux 基金会后改名为 OpenAPI，并定义最新的规范为 OpenAPI 3.0。</li>
-<li>版本问题<ul>
+<li><p>OpenAPI 始于 Swagger 规范，Swagger 规范已于 2015 年捐赠给 Linux 基金会后改名为 OpenAPI，并定义最新的规范为 OpenAPI 3.0。</p>
+</li>
+<li><p>Swagger是RESTful API描述规范，后更名为OpenAPI</p>
+</li>
+<li><p>可以根据注解和配置自动生成文档</p>
+</li>
+<li><p>版本问题</p>
+<ul>
 <li>目前主要支持SpringBoot2.x版本。</li>
 <li>SpringBoot3则推荐使用Springdoc OpenAPI</li>
 <li>Swagger2主要使用javax.servlet</li>
@@ -2935,12 +2941,15 @@ box-shadow: 0 0 15px rgba(0,0,0,0.15);">
 </li>
 </ul>
 </li>
-<li>访问地址:<ul>
+<li><p>以下是SpringBoot2.x版本使用swagger2案例</p>
+</li>
+<li><p>访问地址:</p>
+<ul>
 <li>低版本url：<a href="http://localhost:8080/swagger-ui.html">http://localhost:8080/swagger-ui.html</a></li>
-<li>高版本url：<a href="http://localhost:8080/swagger-ui/index.html">http://localhost:8080/swagger-ui/index.html</a></li>
 </ul>
 </li>
-<li>关于使用示例代码：<ul>
+<li><p>关于使用示例代码：</p>
+<ul>
 <li>依赖<ul>
 <li><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- swagger --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>io.springfox<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>springfox-swagger2<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.0.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- swagger ui --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>io.springfox<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>springfox-swagger-ui<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.0.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
 </ul>
@@ -3027,7 +3036,29 @@ box-shadow: 0 0 15px rgba(0,0,0,0.15);">
   <entry>
     <title>Springdoc</title>
     <url>/myblog/2025/11/09/%E5%90%8E%E7%AB%AF/JAVA/Springdoc/</url>
-    <content><![CDATA[<link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css"><script src="https://fastly.jsdelivr.net/npm/d3@7"></script><script src="https://fastly.jsdelivr.net/npm/markmap-view@0.18.10"></script><script src="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10"></script>
+    <content><![CDATA[<h1 id="Springdoc详解"><a href="#Springdoc详解" class="headerlink" title="Springdoc详解"></a>Springdoc详解</h1><ul>
+<li>什么是Springdoc？<ul>
+<li>springdoc-openapi是一个基于OpenAPI 3规范的Java库，专门为Spring Boot项目自动生成API文档。</li>
+<li>默认使用Swagger UI做完文档展示<ul>
+<li>因为Swagger UI是独立的可视化工具，它只需要符合OpenAPI规范的JSON&#x2F;YAML文件就能工作。springdoc生成符合规范的OpenAPI定义，然后Swagger UI负责展示。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="快速开始"><a href="#快速开始" class="headerlink" title="快速开始"></a>快速开始</h1><ul>
+<li>使用Springdoc案例<ul>
+<li>pom.xml依赖<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springdoc<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>springdoc-openapi-starter-webmvc-ui<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li>注解使用<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="meta">@Tag(name = &quot;用户管理&quot;, description = &quot;用户相关操作API&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">UserController</span> &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Operation(summary = &quot;获取用户信息&quot;, description = &quot;根据用户ID获取详细信息&quot;)</span></span><br><span class="line">    <span class="meta">@ApiResponses(&#123;</span></span><br><span class="line"><span class="meta">        @ApiResponse(responseCode = &quot;200&quot;, description = &quot;成功&quot;),</span></span><br><span class="line"><span class="meta">        @ApiResponse(responseCode = &quot;404&quot;, description = &quot;用户不存在&quot;)</span></span><br><span class="line"><span class="meta">    &#125;)</span></span><br><span class="line">    <span class="meta">@GetMapping(&quot;/users/&#123;id&#125;&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> User <span class="title function_">getUser</span><span class="params">(</span></span><br><span class="line"><span class="params">        <span class="meta">@Parameter(description = &quot;用户ID&quot;, required = true, example = &quot;123&quot;)</span> </span></span><br><span class="line"><span class="params">        <span class="meta">@PathVariable</span> Long id)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> userService.getUser(id);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>配置类（可选、推荐配置说明文档）<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">OpenApiConfig</span> &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="keyword">public</span> OpenAPI <span class="title function_">customOpenAPI</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">OpenAPI</span>()</span><br><span class="line">            .info(<span class="keyword">new</span> <span class="title class_">Info</span>()</span><br><span class="line">                .title(<span class="string">&quot;用户管理系统API&quot;</span>)</span><br><span class="line">                .version(<span class="string">&quot;1.0&quot;</span>)</span><br><span class="line">                .description(<span class="string">&quot;用户管理相关接口文档&quot;</span>)</span><br><span class="line">                .contact(<span class="keyword">new</span> <span class="title class_">Contact</span>()</span><br><span class="line">                    .name(<span class="string">&quot;开发者&quot;</span>)</span><br><span class="line">                    .email(<span class="string">&quot;dev@example.com&quot;</span>)))</span><br><span class="line">            .externalDocs(<span class="keyword">new</span> <span class="title class_">ExternalDocumentation</span>()</span><br><span class="line">                .description(<span class="string">&quot;更多文档&quot;</span>)</span><br><span class="line">                .url(<span class="string">&quot;https://example.com/docs&quot;</span>));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>访问地址<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">http://localhost:8080/swagger-ui.html</span><br><span class="line"><span class="comment"># 或者</span></span><br><span class="line">http://localhost:8080/swagger-ui/index.html</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css"><script src="https://fastly.jsdelivr.net/npm/d3@7"></script><script src="https://fastly.jsdelivr.net/npm/markmap-view@0.18.10"></script><script src="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10"></script>
 <link rel="stylesheet" href="/myblog/css/markmap.css">
 
 <script src="/myblog/js/markmap.js"></script>
