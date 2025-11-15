@@ -177,6 +177,142 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://1514597997.github.io/myblog/2025/11/12/%E5%89%8D%E7%AB%AF/Vite/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/myblog/images/avatar.jpg">
+      <meta itemprop="name" content="YaoHao">
+      <meta itemprop="description" content="使用hexo+next主题搭建的学习博客">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/myblog/2025/11/12/%E5%89%8D%E7%AB%AF/Vite/" class="post-title-link" itemprop="url">vite前端构建工具</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2025-11-12 16:31:47" itemprop="dateCreated datePublished" datetime="2025-11-12T16:31:47+08:00">2025-11-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-11-13 15:47:05" itemprop="dateModified" datetime="2025-11-13T15:47:05+08:00">2025-11-13</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/myblog/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <ul>
+<li><a target="_blank" rel="noopener" href="https://vitejs.cn/vite3-cn/guide/">官网</a></li>
+<li>具体不再介绍，请自行查看官网</li>
+<li>这是目前的最流行的前端构建工具</li>
+<li>这里只演示使用</li>
+</ul>
+<h1 id="快速使用"><a href="#快速使用" class="headerlink" title="快速使用"></a>快速使用</h1><ul>
+<li>前置环境<ul>
+<li>已安装 16.0 或更高版本的 Node.js</li>
+</ul>
+</li>
+</ul>
+<h1 id="个人搭建项目案例"><a href="#个人搭建项目案例" class="headerlink" title="个人搭建项目案例"></a>个人搭建项目案例</h1><ul>
+<li><p>项目架构</p>
+<ul>
+<li>vue3<ul>
+<li>vue-router</li>
+<li>pinia</li>
+</ul>
+</li>
+<li>element-plus<ul>
+<li>element-plus图标</li>
+</ul>
+</li>
+<li>typescript</li>
+</ul>
+</li>
+<li><p>目录结构</p>
+</li>
+</ul>
+<figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">myproject-vite<span class="symbol">/</span>             <span class="comment"># 你的项目根目录</span></span><br><span class="line">├── .vscode<span class="symbol">/</span>                <span class="comment"># 可选：VSCode 编辑器配置目录（非必需）</span></span><br><span class="line">├── node_modules<span class="symbol">/</span>           <span class="comment"># 自动生成的依赖包目录（npm install 后出现）</span></span><br><span class="line">├── public<span class="symbol">/</span>                 <span class="comment"># 静态资源目录，直接拷贝到打包输出根目录</span></span><br><span class="line">├── src<span class="symbol">/</span>                    <span class="comment"># 主代码目录</span></span><br><span class="line">│   ├── assets<span class="symbol">/</span>             <span class="comment"># 放图片、字体等静态资源（经打包处理）</span></span><br><span class="line">│   ├── components<span class="symbol">/</span>         <span class="comment"># 放 Vue 组件</span></span><br><span class="line">│   │   └── App.vue         <span class="comment"># 主组件，作为入口挂载</span></span><br><span class="line">│   ├── main.js             <span class="comment"># JS 入口文件（创建 Vue 应用并挂载到 DOM）</span></span><br><span class="line">│   └── style.css           <span class="comment"># 项目的全局样式</span></span><br><span class="line">├── .gitignore              <span class="comment"># Git 忽略文件设置（例如 node_modules 不上传 Git）</span></span><br><span class="line">├── index.html              <span class="comment"># 项目入口 HTML 文件（Vite 特别重要）</span></span><br><span class="line">├── package-lock.json       <span class="comment"># npm 自动生成的依赖锁文件</span></span><br><span class="line">├── package.json            <span class="comment"># 项目配置与依赖清单（最核心）</span></span><br><span class="line">├── README.md               <span class="comment"># 项目说明文档</span></span><br><span class="line">└── vite.config.js          <span class="comment"># Vite 配置文件</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+<h2 id="安装vite-同时创建vue3-vite-typescript项目"><a href="#安装vite-同时创建vue3-vite-typescript项目" class="headerlink" title="安装vite 同时创建vue3+vite+typescript项目"></a>安装vite 同时创建vue3+vite+typescript项目</h2><figure class="highlight dsconfig"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//安装<span class="string">vite</span></span><br><span class="line"><span class="string">D</span>:\<span class="string">kaifagongju</span>\<span class="string">yhds</span>&gt;<span class="string">npm</span> <span class="string">create</span> <span class="string">vite</span>@<span class="string">latest</span>  <span class="string">web</span> -- <span class="built_in">--template</span> <span class="string">vue</span></span><br><span class="line"><span class="string">Need</span> <span class="string">to</span> <span class="string">install</span> <span class="string">the</span> <span class="string">following</span> <span class="string">packages</span>:</span><br><span class="line"><span class="built_in">create-vite@8.0.3</span></span><br><span class="line"><span class="string">Ok</span> <span class="string">to</span> <span class="string">proceed</span>? (<span class="string">y</span>)<span class="string">y</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight dsconfig"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">//安装后，创建<span class="string">web</span>项目</span><br><span class="line"><span class="string">D</span>:\<span class="string">kaifagongju</span>&gt;<span class="string">npm</span> <span class="string">create</span> <span class="string">vite</span>@<span class="string">latest</span>  <span class="string">yhdsweb</span> -- <span class="built_in">--template</span> <span class="string">vue</span></span><br><span class="line"></span><br><span class="line">&gt; <span class="string">npx</span></span><br><span class="line">&gt; <span class="built_in">create-vite</span> <span class="string">yhdsweb</span> <span class="built_in">--template</span> <span class="string">vue</span></span><br><span class="line"></span><br><span class="line">|</span><br><span class="line"><span class="string">o</span>  <span class="string">Use</span> <span class="string">rolldown-vite</span> (<span class="string">Experimental</span>)?:</span><br><span class="line">|  <span class="string">No</span></span><br><span class="line">|</span><br><span class="line"><span class="string">o</span>  <span class="string">Install</span> <span class="string">with</span> <span class="string">npm</span> <span class="string">and</span> <span class="string">start</span> <span class="string">now</span>?</span><br><span class="line">|  <span class="string">Yes</span></span><br><span class="line">|</span><br><span class="line"><span class="string">o</span>  <span class="string">Scaffolding</span> <span class="string">project</span> <span class="string">in</span> <span class="string">D</span>:\<span class="string">kaifagongju</span>\<span class="string">yhdsweb</span>...</span><br><span class="line">|</span><br><span class="line"><span class="string">o</span>  <span class="string">Installing</span> <span class="string">dependencies</span> <span class="string">with</span> <span class="string">npm</span>...</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>npm run dev;成功启动项目<figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">D:\kaifagongju\yhdsweb&gt;npm <span class="built_in">run</span> dev</span><br><span class="line"></span><br><span class="line">&gt; yhdsweb<span class="symbol">@0</span><span class="number">.0</span><span class="number">.0</span> dev</span><br><span class="line">&gt; vite</span><br><span class="line"></span><br><span class="line"><span class="number">17</span>:<span class="number">28</span>:<span class="number">44</span> [vite] (client) Re-optimizing dependencies because lockfile has changed</span><br><span class="line"></span><br><span class="line">  VITE v7<span class="number">.2</span><span class="number">.2</span>  ready <span class="keyword">in</span> <span class="number">529</span> ms</span><br><span class="line"></span><br><span class="line">  ➜  <span class="keyword">Local</span>:   http://localhost:<span class="number">5173</span>/</span><br><span class="line">  ➜  Network: use --host <span class="keyword">to</span> expose</span><br><span class="line">  ➜  press h + enter <span class="keyword">to</span> show help</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="安装element-plus"><a href="#安装element-plus" class="headerlink" title="安装element-plus"></a>安装element-plus</h2><figure class="highlight livescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">D:<span class="string">\kaifagongju\yhdsweb&gt;npm</span> install element-plus --save</span><br><span class="line"></span><br><span class="line">added <span class="number">68</span> packages <span class="keyword">in</span> <span class="number">21s</span></span><br><span class="line"></span><br><span class="line"><span class="number">11</span> packages are looking <span class="keyword">for</span> funding</span><br><span class="line">  run `<span class="built_in">npm</span> fund` <span class="keyword">for</span> details</span><br><span class="line"></span><br><span class="line">D:<span class="string">\kaifagongju\yhdsweb&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="安装按需导入插件vue-components和auto-import"><a href="#安装按需导入插件vue-components和auto-import" class="headerlink" title="安装按需导入插件vue-components和auto-import"></a>安装按需导入插件vue-components和auto-import</h2><figure class="highlight livescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">D:<span class="string">\kaifagongju\yhdsweb&gt;npm</span> install -D unplugin-vue-components unplugin-auto-<span class="keyword">import</span></span><br><span class="line"></span><br><span class="line">added <span class="number">30</span> packages <span class="keyword">in</span> <span class="number">2s</span></span><br><span class="line"></span><br><span class="line"><span class="number">20</span> packages are looking <span class="keyword">for</span> funding</span><br><span class="line">  run `<span class="built_in">npm</span> fund` <span class="keyword">for</span> details</span><br><span class="line"></span><br><span class="line">D:<span class="string">\kaifagongju\yhdsweb&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="安装element-plus图标-可选"><a href="#安装element-plus图标-可选" class="headerlink" title="安装element-plus图标(可选)"></a>安装element-plus图标(可选)</h2><figure class="highlight livescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">D:<span class="string">\kaifagongju\yhdsweb&gt;npm</span> install @element-plus/icons-vue</span><br><span class="line"></span><br><span class="line">up <span class="keyword">to</span> date <span class="keyword">in</span> <span class="number">795ms</span></span><br><span class="line"></span><br><span class="line"><span class="number">20</span> packages are looking <span class="keyword">for</span> funding</span><br><span class="line">  run `<span class="built_in">npm</span> fund` <span class="keyword">for</span> details</span><br><span class="line"></span><br><span class="line">D:<span class="string">\kaifagongju\yhdsweb&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="安装vue-router"><a href="#安装vue-router" class="headerlink" title="安装vue-router"></a>安装vue-router</h2><figure class="highlight livescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">PS D:<span class="string">\kaifagongju\yhdsweb&gt;</span> <span class="built_in">npm</span> install vue-router</span><br><span class="line"></span><br><span class="line">up <span class="keyword">to</span> date <span class="keyword">in</span> <span class="number">1s</span></span><br><span class="line"></span><br><span class="line"><span class="number">26</span> packages are looking <span class="keyword">for</span> funding</span><br><span class="line">  run `<span class="built_in">npm</span> fund` <span class="keyword">for</span> details</span><br><span class="line">PS D:<span class="string">\kaifagongju\yhdsweb&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="安装pinia"><a href="#安装pinia" class="headerlink" title="安装pinia"></a>安装pinia</h2><figure class="highlight livescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">D:<span class="string">\kaifagongju\yhdsweb&gt;npm</span> install pinia</span><br><span class="line"></span><br><span class="line">added <span class="number">13</span> packages <span class="keyword">in</span> <span class="number">11s</span></span><br><span class="line"></span><br><span class="line"><span class="number">25</span> packages are looking <span class="keyword">for</span> funding</span><br><span class="line">  run `<span class="built_in">npm</span> fund` <span class="keyword">for</span> details</span><br><span class="line"></span><br><span class="line">D:<span class="string">\kaifagongju\yhdsweb&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="安装less"><a href="#安装less" class="headerlink" title="安装less"></a>安装less</h2><figure class="highlight livescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">PS D:<span class="string">\kaifagongju\yhdsweb&gt;</span> <span class="built_in">npm</span> install -D less</span><br><span class="line"></span><br><span class="line">added <span class="number">64</span> packages <span class="keyword">in</span> <span class="number">1s</span></span><br><span class="line"></span><br><span class="line"><span class="number">26</span> packages are looking <span class="keyword">for</span> funding</span><br><span class="line">  run `<span class="built_in">npm</span> fund` <span class="keyword">for</span> details</span><br><span class="line">PS D:<span class="string">\kaifagongju\yhdsweb&gt;</span> </span><br></pre></td></tr></table></figure>
+
+
+<h2 id="配置vue-components、auto-import按需引用插件"><a href="#配置vue-components、auto-import按需引用插件" class="headerlink" title="配置vue-components、auto-import按需引用插件"></a>配置vue-components、auto-import按需引用插件</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; defineConfig &#125; <span class="keyword">from</span> <span class="string">&#x27;vite&#x27;</span></span><br><span class="line"><span class="keyword">import</span> vue <span class="keyword">from</span> <span class="string">&#x27;@vitejs/plugin-vue&#x27;</span></span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">ElementPlusResolver</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;unplugin-vue-components/resolvers&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">Components</span> <span class="keyword">from</span> <span class="string">&#x27;unplugin-vue-components/vite&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">AutoImport</span> <span class="keyword">from</span> <span class="string">&#x27;unplugin-auto-import/vite&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// https://vite.dev/config/</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title function_">defineConfig</span>(&#123;</span><br><span class="line">  <span class="attr">plugins</span>: [<span class="title function_">vue</span>()</span><br><span class="line">    , <span class="title class_">AutoImport</span>(&#123;</span><br><span class="line">      <span class="attr">resolvers</span>: [<span class="title class_">ElementPlusResolver</span>()],</span><br><span class="line">    &#125;)</span><br><span class="line">    , <span class="title class_">Components</span>(&#123;</span><br><span class="line">      <span class="attr">resolvers</span>: [<span class="title class_">ElementPlusResolver</span>()],</span><br><span class="line">    &#125;)</span><br><span class="line">  ],</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+
+<link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css"><script src="https://fastly.jsdelivr.net/npm/d3@7"></script><script src="https://fastly.jsdelivr.net/npm/markmap-view@0.18.10"></script><script src="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10"></script>
+<link rel="stylesheet" href="/myblog/css/markmap.css">
+
+<script src="/myblog/js/markmap.js"></script>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://1514597997.github.io/myblog/2025/11/10/%E5%90%8E%E7%AB%AF/JAVA/SpringCloudDoc%E8%81%9A%E5%90%88%E6%96%87%E6%A1%A3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -487,7 +623,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-11-10 16:23:44" itemprop="dateModified" datetime="2025-11-10T16:23:44+08:00">2025-11-10</time>
+                <time title="修改时间：2025-11-11 16:24:10" itemprop="dateModified" datetime="2025-11-11T16:24:10+08:00">2025-11-11</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -515,8 +651,12 @@
 <li>springdoc-openapi是一个基于OpenAPI 3规范的Java库，专门为Spring Boot项目自动生成API文档。</li>
 <li>默认使用Swagger UI做完文档展示<ul>
 <li>因为Swagger UI是独立的可视化工具，它只需要符合OpenAPI规范的JSON&#x2F;YAML文件就能工作。springdoc生成符合规范的OpenAPI定义，然后Swagger UI负责展示。</li>
+<li>默认SwaggerApi地址:&#x2F;v3&#x2F;api-docs</li>
+<li>&#x2F;v3&#x2F;api-docs，返回得是符合OpenAPI 3规范的JSON文件。</li>
 </ul>
 </li>
+<li>Springdoc生成符合OpenAPI 3规范的JSON文件，然后Swagger UI负责展示。</li>
+<li>所以根据上面得描述理论上可以根据JSON文件生成文档，也可以做聚合文档展示</li>
 </ul>
 </li>
 </ul>
@@ -1289,81 +1429,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://1514597997.github.io/myblog/2025/11/06/%E6%95%B0%E6%8D%AE%E5%BA%93/UnionAll/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/myblog/images/avatar.jpg">
-      <meta itemprop="name" content="YaoHao">
-      <meta itemprop="description" content="使用hexo+next主题搭建的学习博客">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="个人博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/myblog/2025/11/06/%E6%95%B0%E6%8D%AE%E5%BA%93/UnionAll/" class="post-title-link" itemprop="url">UnionAll语句</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2025-11-06 20:36:11 / 修改时间：22:57:30" itemprop="dateCreated datePublished" datetime="2025-11-06T20:36:11+08:00">2025-11-06</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/myblog/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="UnionAll使用语句"><a href="#UnionAll使用语句" class="headerlink" title="UnionAll使用语句"></a><a target="_blank" rel="noopener" href="https://www.runoob.com/sql/sql-union.html">UnionAll使用语句</a></h1><ul>
-<li>UNION 操作符用于合并两个或多个 SELECT 语句的结果集。<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator">/</span><span class="operator">/</span>参考代码</span><br><span class="line"><span class="keyword">SELECT</span> column1, column2, ...</span><br><span class="line"><span class="keyword">UNION</span></span><br><span class="line"><span class="keyword">SELECT</span> column1, column2, ..</span><br></pre></td></tr></table></figure>
-其中Oracle数据库中拼接的列名不能使用Null参数，必须给指定的类型对应！</li>
-</ul>
-<link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css"><script src="https://fastly.jsdelivr.net/npm/d3@7"></script><script src="https://fastly.jsdelivr.net/npm/markmap-view@0.18.10"></script><script src="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10"></script>
-<link rel="stylesheet" href="/myblog/css/markmap.css">
-
-<script src="/myblog/js/markmap.js"></script>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1434,7 +1499,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/myblog/archives">
-          <span class="site-state-item-count">37</span>
+          <span class="site-state-item-count">38</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

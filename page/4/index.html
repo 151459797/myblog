@@ -177,6 +177,241 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://1514597997.github.io/myblog/2025/11/06/%E5%90%8E%E7%AB%AF/JAVA/Spring/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/myblog/images/avatar.jpg">
+      <meta itemprop="name" content="YaoHao">
+      <meta itemprop="description" content="使用hexo+next主题搭建的学习博客">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/myblog/2025/11/06/%E5%90%8E%E7%AB%AF/JAVA/Spring/" class="post-title-link" itemprop="url">Spring框架</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2025-11-06 20:36:10" itemprop="dateCreated datePublished" datetime="2025-11-06T20:36:10+08:00">2025-11-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-11-07 16:55:45" itemprop="dateModified" datetime="2025-11-07T16:55:45+08:00">2025-11-07</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/myblog/categories/%E5%90%8E%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">后端</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote class="blockquote-center">[Spring](https://springdoc.cn/spring/)</blockquote>
+
+<ul>
+<li>轻量级的Java EE（Java Platform, Enterprise Edition）开发框架</li>
+<li>Spring 是一个基于控制反转（IoC）和面向切面编程（AOP）的框架，它通过 Java 反射机制以及其他技术来管理对象实例和实现其功能。</li>
+<li></li>
+</ul>
+<h1 id="控制反转（Ioc）"><a href="#控制反转（Ioc）" class="headerlink" title="控制反转（Ioc）"></a>控制反转（Ioc）</h1><ul>
+<li>一种设计思想,不是一种具体的技术。负责对象的创建、初始化以及依赖关系的管理</li>
+<li>举例：A服务中有使用B服务，A依赖类B。弊端在传统模式中需要手动创建2种服务，依赖过多new实例维护过多。此时就可控制反转，通过IoC依赖注入，让依赖关系在IoC创建实例自动注入。实例化对象的权利就由用户转交给了Spring容器，这就叫作控制反转！</li>
+<li>依赖注入（Dependency Injection，DI）实现 IoC 的一种方式，通过将依赖管理注入到对象中</li>
+<li>Spring中IoC工作7步骤：资源加载，Bean 定义解析，Bean 实例化，依赖注入，初始化，使用，销毁<ul>
+<li>1.资源加载：Spring 容器会读取配置文件或注解，这些配置信息定义了应用中的对象及其相互依赖的关系。</li>
+<li>2.Bean定义解析：容器将配置信息解析为内部数据结构，每个定义的对象对应一个 BeanDefinition 对象，这个对象包含了类的信息、属性值等。</li>
+<li>3.Bean实例化：Spring 容器通过反射机制，根据 BeanDefinition 中的信息创建对象实例。</li>
+<li>4.依赖注入：容器会根据对象之间定义的依赖关系，通过反射将各个对象相互关联起来，完成依赖注入。</li>
+<li>5.初始化：对象创建并注入依赖之后，Spring容器会调用对象的初始化方法，完成对象的初始化过程。</li>
+<li>6.使用：初始化完成后，对象就可以被应用程序使用了。</li>
+<li>7.销毁：当应用关闭时，Spring 容器会调用对象的销毁方法，进行资源的清理工作。</li>
+<li>bean概念：想注入到 SpringIoC 容器的 Java 对象实例的抽象。</li>
+</ul>
+</li>
+</ul>
+<h1 id="面向切面编程AOP（Aspect-Orient-Programming）"><a href="#面向切面编程AOP（Aspect-Orient-Programming）" class="headerlink" title="面向切面编程AOP（Aspect Orient Programming）"></a>面向切面编程AOP（Aspect Orient Programming）</h1><ul>
+<li>AOP是一种编程思想，是面向对象编程（OOP）的一种补充。</li>
+<li>实现在不修改源代码的情况下给程序动态统一添加额外功能的一种方式</li>
+<li>切面（Aspect）<ul>
+<li>一个关注点的模块化，通常是一个类。切面通过 @Aspect 注解标记</li>
+<li>切面声明，标注在类、接口（包括注解类型）或枚举上。</li>
+<li>切面可以包含多个通知和切点</li>
+</ul>
+</li>
+<li>连接点（Join Point）<ul>
+<li>程序执行过程中的某个特定点</li>
+<li>连接点是 AOP 框架在运行时可以动态插入通知的地方</li>
+<li>在 SpringAOP 中，连接点由 JoinPoint 接口表示。</li>
+</ul>
+</li>
+<li>通知（Advice）<ul>
+<li>通知是在连接点上执行的代码。它定义了在连接点处应该执行的逻辑。</li>
+<li>通知通过注解（如 @Before、@After、@Around 等）定义。</li>
+<li>通知类别<ul>
+<li>前置通知（Before Advice）：在连接点之前执行。</li>
+<li>后置通知（After Advice）：在连接点之后执行，无论方法是否抛出异常。</li>
+<li>返回通知（After Returning Advice）：在连接点正常返回后执行。</li>
+<li>异常通知（After Throwing Advice）：在连接点抛出异常后执行。</li>
+<li>环绕通知（Around Advice）：在连接点前后都可以执行，可以控制是否继续执行连接点。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>切点（Pointcut）<ul>
+<li>切点是通知应该应用到哪些连接点的表达式。</li>
+<li>切点表达式可以指定方法名、类名、参数类型等条件。</li>
+<li>切点可以组合使用，通过逻辑运算符（如 &amp;&amp;、||、!）来定义更复杂的条件。</li>
+</ul>
+</li>
+<li>目标对象（Target Object）<ul>
+<li>目标对象是被 AOP 代理的对象，通常是指包含业务逻辑的原始对象。</li>
+<li>目标对象是业务逻辑的具体实现。</li>
+<li>它可以是任何普通的 Java 对象，通常由 Spring 容器管理。</li>
+<li>目标对象的方法可能会被 AOP 代理拦截，并在执行前后添加额外的逻辑。</li>
+</ul>
+</li>
+<li>AOP 代理（AOP Proxy）<ul>
+<li>AOP 代理是 AOP 框架动态生成的对象，用于实现通知的执行。</li>
+<li>它实现了与目标对象相同的接口或继承了目标对象的类。</li>
+<li>代理对象可以是通过 JDK 动态代理或 CGLIB 动态代理生成的<ul>
+<li>如果目标对象没有实现任何接口，Spring 会使用 CGLIB 动态代理</li>
+<li>目标对象实现了至少一个接口，Spring 默认使用 JDK 动态代理</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>织入（Weaving）<ul>
+<li>SpringAOP织入不需要程序员操作，织入过程是自动完成的</li>
+<li>织入是将切面（Aspect）应用到目标对象（Target Object）并创建新的代理对象（AOP Proxy）的过程</li>
+<li>织入有几种方式：编译时织入，类加载时织入，<ul>
+<li>编译时织入：在编译阶段将切面逻辑织入目标类中，生成新的字节码文件。</li>
+<li>类加载时织入：在类加载阶段通过字节码操作技术，将切面逻辑织入目标类中</li>
+<li>运行时织入：在运行时通过动态代理技术（JDK 动态代理或 CGLIB 动态代理），Spring AOP 默认采用运行时织入</li>
+</ul>
+</li>
+<li>织入过程<ul>
+<li>创建代理对象：Spring 根据目标对象的类型（是否实现了接口）选择使用 JDK 动态代理或 CGLIB 动态代理。</li>
+<li>拦截方法调用：当客户端调用代理对象的方法时，代理对象会拦截这个调用。</li>
+<li>执行通知逻辑：代理对象根据配置的通知类型，在调用目标方法前后执行相应的通知逻辑。</li>
+<li>调用目标方法：在执行完通知逻辑后，代理对象调用目标对象的实际方法</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="模板模式（Template-Pattern）"><a href="#模板模式（Template-Pattern）" class="headerlink" title="模板模式（Template Pattern）"></a>模板模式（Template Pattern）</h1><ul>
+<li>行为型设计模式，用于定义算法的骨架，将具体实现延迟到子类中。</li>
+<li>Spring标准模板JdbcTemplate，封装了 JDBC 的操作流程，将通用的数据库操作（如连接、关闭资源等）放在模板类中</li>
+</ul>
+<h1 id="注解支持"><a href="#注解支持" class="headerlink" title="注解支持"></a>注解支持</h1><ul>
+<li>Spring 提供了强大的注解支持，简化了配置XML和开发过程。</li>
+<li>@Component：标记一个类为 Spring 管理的 Bean</li>
+<li>@Service：标记一个类为服务层组件</li>
+<li>@Repository：标记一个类为数据访问层组件</li>
+<li>@Controller：标记一个类为控制器</li>
+<li>@Autowired：用于注入依赖</li>
+<li>@Transactional：用于声明事务</li>
+</ul>
+<h1 id="事件驱动"><a href="#事件驱动" class="headerlink" title="事件驱动"></a>事件驱动</h1><ul>
+<li>Spring 的事件驱动机制基于观察者模式，允许组件之间通过事件进行解耦。</li>
+<li>事件类（Event）<ul>
+<li>事件类是 Spring 事件驱动机制中的核心，用于表示事件的内容和类型。</li>
+<li>所有自定义事件都需要继承 ApplicationEvent 类</li>
+<li>Spring内置事件类<ul>
+<li>ContextRefreshedEvent：在 ApplicationContext 初始化或刷新时发布</li>
+<li>ContextStartedEvent：在调用 ConfigurableApplicationContext 的 start() 方法时发布</li>
+<li>ContextStoppedEvent：在调用 ConfigurableApplicationContext 的 stop() 方法时发布</li>
+<li>ContextClosedEvent：在调用 ConfigurableApplicationContext 的 close() 方法时发布</li>
+<li>RequestHandledEvent：在 Web 请求处理完成后发布</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>事件监听器（Listener）<ul>
+<li>事件监听器用于监听并处理事件。</li>
+<li>Spring内置2种事件监听<ul>
+<li>ApplicationListener 是一个接口，用于监听特定类型的 ApplicationEvent</li>
+<li>@EventListener 是一个注解,Spring 会自动注册该方法为事件监听器。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>事件发布器（Publisher）<ul>
+<li>Spring自动发布事件就是事件类提到的Spring内置的事件</li>
+<li>开发者手动发布事件<ul>
+<li>通过 ApplicationContext 发布事件,适合在应用程序的入口或配置类中使用，简单直接</li>
+<li>通过 ApplicationEventPublisher 发布事件：适合在任何 Spring 管理的 Bean 中使用，更符合依赖注入的原则</li>
+<li>通过 ApplicationEventMulticaster 广播事件：适合需要直接操作事件广播逻辑的场景</li>
+<li>发布任意对象作为事件：适合快速发布简单的事件，但可能牺牲一些灵活性。</li>
+<li>异步发布事件：适合需要提高响应性的场景，但需要额外配置线程池和异步支持</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>事件广播器（Multicaster）<ul>
+<li>负责将事件分发给所有注册的监听器。它实现了发布-订阅模式，使得事件发布者和监听器之间解耦</li>
+<li>ApplicationEventMulticaster 接口<ul>
+<li>addApplicationListener：添加一个事件监听器</li>
+<li>removeApplicationListener：移除一个事件监听器。</li>
+<li>multicastEvent：广播事件给所有注册的监听器</li>
+</ul>
+</li>
+<li>Spring 提供了 SimpleApplicationEventMulticaster 作为默认实现，它维护一个监听器列表，并在事件发生时逐个调用这些监听器</li>
+<li>SimpleApplicationEventMulticaster 默认是同步处理事件的，即事件发布者会等待所有监听器处理完事件后才继续执行<ul>
+<li>配置 TaskExecutor 可以实现异步事件处理</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css"><script src="https://fastly.jsdelivr.net/npm/d3@7"></script><script src="https://fastly.jsdelivr.net/npm/markmap-view@0.18.10"></script><script src="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10"></script>
+<link rel="stylesheet" href="/myblog/css/markmap.css">
+
+<script src="/myblog/js/markmap.js"></script>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://1514597997.github.io/myblog/2025/11/06/%E5%90%8E%E7%AB%AF/JAVA/Maven/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1041,7 +1276,7 @@ box-shadow: 0 0 15px rgba(0,0,0,0.15);">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-11-07 16:03:25" itemprop="dateModified" datetime="2025-11-07T16:03:25+08:00">2025-11-07</time>
+                <time title="修改时间：2025-11-12 17:22:33" itemprop="dateModified" datetime="2025-11-12T17:22:33+08:00">2025-11-12</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1211,7 +1446,54 @@ box-shadow: 0 0 15px rgba(0,0,0,0.15);">
             <p>异步更新：通过 nextTick 等机制优化 DOM 更新。</p>
 
             <i class="fa fa-quote-right"></i>
-          </blockquote><link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css"><script src="https://fastly.jsdelivr.net/npm/d3@7"></script><script src="https://fastly.jsdelivr.net/npm/markmap-view@0.18.10"></script><script src="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10"></script>
+          </blockquote>
+
+<h1 id="快速使用"><a href="#快速使用" class="headerlink" title="快速使用"></a>快速使用</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><ul>
+<li>使用npm全局安装指令:<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">npm</span> install -g @vue/cli</span><br></pre></td></tr></table></figure></li>
+<li>查看vue版本<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vue <span class="comment">--version</span></span><br><span class="line"><span class="comment"># 或者</span></span><br><span class="line">vue -V</span><br></pre></td></tr></table></figure></li>
+<li>参考结果<figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">C:</span>\Users\Administrator&gt;vue -V</span><br><span class="line">@vue/<span class="keyword">cli</span> <span class="number">5.0</span><span class="number">.9</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h2><figure class="highlight gauss"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vue <span class="keyword">create</span> 项目名</span><br></pre></td></tr></table></figure>
+<ul>
+<li>新版本会提示选择vue版本安装</li>
+</ul>
+<figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Vue CLI v5<span class="number">.0</span><span class="number">.9</span></span><br><span class="line">? Please pick a preset: (<span class="keyword">Use</span> arrow keys)</span><br><span class="line">&gt; <span class="keyword">Default</span> ([Vue <span class="number">3</span>] babel, eslint)</span><br><span class="line">  <span class="keyword">Default</span> ([Vue <span class="number">2</span>] babel, eslint)</span><br><span class="line">  Manually <span class="keyword">select</span> features</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>安装成功<figure class="highlight prolog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">D</span>:\kaifagongju\yhds&gt;vue create web</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="symbol">Vue</span> <span class="symbol">CLI</span> v5<span class="number">.0</span><span class="number">.9</span></span><br><span class="line">? <span class="symbol">Please</span> pick a preset: <span class="symbol">Default</span> ([<span class="symbol">Vue</span> <span class="number">3</span>] babel, eslint)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="symbol">Vue</span> <span class="symbol">CLI</span> v5<span class="number">.0</span><span class="number">.9</span></span><br><span class="line">✨  <span class="symbol">Creating</span> project in <span class="symbol">D</span>:\kaifagongju\yhds\web.</span><br><span class="line">⚙️  <span class="symbol">Installing</span> <span class="symbol">CLI</span> plugins. <span class="symbol">This</span> might take a while...</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">added <span class="number">831</span> packages in <span class="number">30</span>s</span><br><span class="line"></span><br><span class="line"><span class="number">107</span> packages are looking for funding</span><br><span class="line">  run <span class="string">`npm fund`</span> for details</span><br><span class="line">🚀  <span class="symbol">Invoking</span> generators...</span><br><span class="line">📦  <span class="symbol">Installing</span> additional dependencies...</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">added <span class="number">86</span> packages in <span class="number">6</span>s</span><br><span class="line"></span><br><span class="line"><span class="number">119</span> packages are looking for funding</span><br><span class="line">  run <span class="string">`npm fund`</span> for details</span><br><span class="line">⚓  <span class="symbol">Running</span> completion hooks...</span><br><span class="line"></span><br><span class="line">📄  <span class="symbol">Generating</span> <span class="symbol">README</span>.md...</span><br><span class="line"></span><br><span class="line">🎉  <span class="symbol">Successfully</span> created project web.</span><br><span class="line">👉  <span class="symbol">Get</span> started with the following commands:</span><br><span class="line"></span><br><span class="line"> $ cd web</span><br><span class="line"> $ npm run serve</span><br><span class="line"></span><br><span class="line"><span class="symbol">D</span>:\kaifagongju\yhds&gt;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="运行项目"><a href="#运行项目" class="headerlink" title="运行项目"></a>运行项目</h2><figure class="highlight gauss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># 启动开发服务器</span></span><br><span class="line">npm <span class="keyword">run</span> serve</span><br><span class="line"><span class="meta"># 或者</span></span><br><span class="line">npm <span class="keyword">run</span> dev</span><br><span class="line"></span><br><span class="line"><span class="meta"># 项目启动</span></span><br><span class="line"> DONE  Compiled successfully in <span class="number">4211</span>ms                                                                          <span class="number">11</span>:<span class="number">21</span>:<span class="number">24</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  App running at:</span><br><span class="line">  - <span class="keyword">Local</span>:   http:<span class="comment">//localhost:8080/</span></span><br><span class="line">  - Network: unavailable</span><br><span class="line"></span><br><span class="line">  Note that the development build is <span class="keyword">not</span> optimized.</span><br><span class="line">  To <span class="keyword">create</span> a production build, <span class="keyword">run</span> npm <span class="keyword">run</span> build.</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="Vue项目结构说明"><a href="#Vue项目结构说明" class="headerlink" title="Vue项目结构说明"></a>Vue项目结构说明</h2><figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">my-vue-project<span class="symbol">/</span></span><br><span class="line">├── public<span class="symbol">/</span>               <span class="comment"># 存放静态资源，如index.html</span></span><br><span class="line">│   └── index.html        <span class="comment"># 项目入口HTML模板</span></span><br><span class="line">├── src<span class="symbol">/</span>                  <span class="comment"># 源代码目录</span></span><br><span class="line">│   ├── assets<span class="symbol">/</span>           <span class="comment"># 静态资源（图片、样式等）</span></span><br><span class="line">│   ├── components<span class="symbol">/</span>       <span class="comment"># Vue组件</span></span><br><span class="line">│   ├── views<span class="symbol">/</span>            <span class="comment"># 页面级组件</span></span><br><span class="line">│   ├── App.vue           <span class="comment"># 根组件</span></span><br><span class="line">│   └── main.js           <span class="comment"># 项目入口JS文件</span></span><br><span class="line">├── node_modules<span class="symbol">/</span>         <span class="comment"># 项目依赖包（**不上传Git**）</span></span><br><span class="line">├── package.json          <span class="comment"># 项目配置和依赖列表</span></span><br><span class="line">└── README.md             <span class="comment"># 项目说明文档</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="vue安装UI组件库"><a href="#vue安装UI组件库" class="headerlink" title="vue安装UI组件库"></a>vue安装UI组件库</h1><ul>
+<li>vue2推荐安装element-ui</li>
+<li>vue3推荐安装ant-design-vue\ <a target="_blank" rel="noopener" href="https://element-plus.org/zh-CN/guide/installation">element-plus</a> （element-ui已停止维护，强行安装vue3可能有兼容问题）</li>
+</ul>
+<h2 id="演示安装element-lus"><a href="#演示安装element-lus" class="headerlink" title="演示安装element-lus"></a>演示安装element-lus</h2><ul>
+<li><p>到需要安装组件库的vue项目中执行指令</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">D</span>:\kaifagongju\yhds\web&gt;npm install element-plus --save</span><br><span class="line"><span class="attribute">npm</span> warn EBADENGINE Unsupported engine &#123;</span><br><span class="line"><span class="attribute">npm</span> warn EBADENGINE   package: &#x27;@achrinza/node-ipc@<span class="number">9</span>.<span class="number">2</span>.<span class="number">9</span>&#x27;,</span><br><span class="line"><span class="attribute">npm</span> warn EBADENGINE   required: &#123;</span><br><span class="line"><span class="attribute">npm</span> warn EBADENGINE     node: &#x27;<span class="number">8</span> || <span class="number">9</span> || <span class="number">10</span> || <span class="number">11</span> || <span class="number">12</span> || <span class="number">13</span> || <span class="number">14</span> || <span class="number">15</span> || <span class="number">16</span> || <span class="number">17</span> || <span class="number">18</span> || <span class="number">19</span> || <span class="number">20</span> || <span class="number">21</span> || <span class="number">22</span>&#x27;</span><br><span class="line"><span class="attribute">npm</span> warn EBADENGINE   &#125;,</span><br><span class="line"><span class="attribute">npm</span> warn EBADENGINE   current: &#123; node: &#x27;v24.<span class="number">10</span>.<span class="number">0</span>&#x27;, npm: &#x27;<span class="number">11</span>.<span class="number">6</span>.<span class="number">1</span>&#x27; &#125;</span><br><span class="line"><span class="attribute">npm</span> warn EBADENGINE &#125;</span><br><span class="line"></span><br><span class="line"><span class="attribute">added</span> <span class="number">22</span> packages in <span class="number">17</span>s</span><br><span class="line"></span><br><span class="line"><span class="attribute">124</span> packages are looking for funding</span><br><span class="line">  <span class="attribute">run</span> `npm fund` for details</span><br><span class="line"></span><br><span class="line"><span class="attribute">D</span>:\kaifagongju\yhds\web&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装后可以在项目的package.json和node_modules中找到element-plus</p>
+<ul>
+<li>参考目录:D:\kaifagongju\yhds\web\node_modules\element-plus</li>
+<li>package.json的dependencies中有element-plus</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">  <span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;web&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;version&quot;</span><span class="punctuation">:</span> <span class="string">&quot;0.1.0&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;private&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;scripts&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;serve&quot;</span><span class="punctuation">:</span> <span class="string">&quot;vue-cli-service serve&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;build&quot;</span><span class="punctuation">:</span> <span class="string">&quot;vue-cli-service build&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;lint&quot;</span><span class="punctuation">:</span> <span class="string">&quot;vue-cli-service lint&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;dependencies&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;core-js&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^3.8.3&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="comment">// element-plus</span></span><br><span class="line">    <span class="attr">&quot;element-plus&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^2.11.7&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;vue&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^3.2.13&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;devDependencies&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;@babel/core&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^7.12.16&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;@babel/eslint-parser&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^7.12.16&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;@vue/cli-plugin-babel&quot;</span><span class="punctuation">:</span> <span class="string">&quot;~5.0.0&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;@vue/cli-plugin-eslint&quot;</span><span class="punctuation">:</span> <span class="string">&quot;~5.0.0&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;@vue/cli-service&quot;</span><span class="punctuation">:</span> <span class="string">&quot;~5.0.0&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;eslint&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^7.32.0&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;eslint-plugin-vue&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^8.0.3&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;eslintConfig&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;root&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;env&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;node&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span></span><br><span class="line">    <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;extends&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">      <span class="string">&quot;plugin:vue/vue3-essential&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="string">&quot;eslint:recommended&quot;</span></span><br><span class="line">    <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;parserOptions&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;parser&quot;</span><span class="punctuation">:</span> <span class="string">&quot;@babel/eslint-parser&quot;</span></span><br><span class="line">    <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;rules&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span><span class="punctuation">&#125;</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;browserslist&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">    <span class="string">&quot;&gt; 1%&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="string">&quot;last 2 versions&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="string">&quot;not dead&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="string">&quot;not ie 11&quot;</span></span><br><span class="line">  <span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="全局引用使用element-plus"><a href="#全局引用使用element-plus" class="headerlink" title="全局引用使用element-plus"></a>全局引用使用element-plus</h2><ul>
+<li>在src&#x2F;App.vue中全局引入element-plus</li>
+<li>由于是全局引用，需要在main.js中引入element-plus。</li>
+<li>因为是全局引用在一些页面可能会有性能问题<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; createApp &#125; <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">App</span> <span class="keyword">from</span> <span class="string">&#x27;./App.vue&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">ElementPlus</span> <span class="keyword">from</span> <span class="string">&#x27;element-plus&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">&#x27;element-plus/dist/index.css&#x27;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span>  app=<span class="title function_">createApp</span>(<span class="title class_">App</span>)</span><br><span class="line">app.<span class="title function_">use</span>(<span class="title class_">ElementPlus</span>)</span><br><span class="line">app.<span class="title function_">mount</span>(<span class="string">&#x27;#app&#x27;</span>)</span><br></pre></td></tr></table></figure></li>
+<li>后续在其他组件中可以直接使用element-plus组件</li>
+</ul>
+<h2 id="按需引入使用element-plus"><a href="#按需引入使用element-plus" class="headerlink" title="按需引入使用element-plus"></a>按需引入使用element-plus</h2><ul>
+<li>按需引用可以根据组件进行部门引用使用组件，减少项目体积，从而提升项目性能</li>
+<li>首先安装自动导入插件（只有vite或webpack5以上版本支持）</li>
+<li>安装方法参考element-plus官方文档</li>
+</ul>
+<link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css"><script src="https://fastly.jsdelivr.net/npm/d3@7"></script><script src="https://fastly.jsdelivr.net/npm/markmap-view@0.18.10"></script><script src="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10"></script>
 <link rel="stylesheet" href="/myblog/css/markmap.css">
 
 <script src="/myblog/js/markmap.js"></script>
@@ -1934,7 +2216,7 @@ box-shadow: 0 0 15px rgba(0,0,0,0.15);">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/myblog/archives">
-          <span class="site-state-item-count">37</span>
+          <span class="site-state-item-count">38</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
