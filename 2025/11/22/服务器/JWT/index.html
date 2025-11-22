@@ -20,20 +20,20 @@
     var CONFIG = {"hostname":"1514597997.github.io","root":"/myblog/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Tomcat Apache Tomcat是由Apache Software Foundation（ASF）开发的一个开源Java WEB应用服务器  加载类和资源的顺序如下：  &#x2F;Web-INF&#x2F;classes &#x2F;Web-INF&#x2F;lib&#x2F;*.jar Bootstrap System $CATALINA_HOME&#x2F;common&#x2F;c">
+  <meta name="description" content="JWT（JSON Web Token）一种基于特定规则的开放标准，用于在基于HTTP的应用程序上下文中进行认证和授权。可用于单点验证用户，也可以用于用户认证和授权。创建JWT后可以将其存储在cookie中，也可以将其存储在浏览器的localStorage中。后续在请求中将JWT发送给服务器，服务器会验证JWT，并返回响应。实现自动登录效果 介绍JWT结构 JWT由3个部分组成 Header（头部）">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Tomcat">
-<meta property="og:url" content="https://1514597997.github.io/myblog/2025/11/06/%E5%B7%A5%E5%85%B7/hexo/tomcat/index.html">
+<meta property="og:title" content="JWT">
+<meta property="og:url" content="https://1514597997.github.io/myblog/2025/11/22/%E6%9C%8D%E5%8A%A1%E5%99%A8/JWT/index.html">
 <meta property="og:site_name" content="个人博客">
-<meta property="og:description" content="Tomcat Apache Tomcat是由Apache Software Foundation（ASF）开发的一个开源Java WEB应用服务器  加载类和资源的顺序如下：  &#x2F;Web-INF&#x2F;classes &#x2F;Web-INF&#x2F;lib&#x2F;*.jar Bootstrap System $CATALINA_HOME&#x2F;common&#x2F;c">
+<meta property="og:description" content="JWT（JSON Web Token）一种基于特定规则的开放标准，用于在基于HTTP的应用程序上下文中进行认证和授权。可用于单点验证用户，也可以用于用户认证和授权。创建JWT后可以将其存储在cookie中，也可以将其存储在浏览器的localStorage中。后续在请求中将JWT发送给服务器，服务器会验证JWT，并返回响应。实现自动登录效果 介绍JWT结构 JWT由3个部分组成 Header（头部）">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-11-06T12:36:11.078Z">
-<meta property="article:modified_time" content="2025-11-06T01:12:29.551Z">
+<meta property="article:published_time" content="2025-11-22T09:51:51.696Z">
+<meta property="article:modified_time" content="2025-11-22T10:29:49.839Z">
 <meta property="article:author" content="YaoHao">
 <meta property="article:tag" content="Java,C#,Spring,MVC,Hibernate,Spring,SpringMVC,SpringBoot,SpringCloud,个人学习博客,YaoHao,EFcode,Mybatis,Sql">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://1514597997.github.io/myblog/2025/11/06/%E5%B7%A5%E5%85%B7/hexo/tomcat/">
+<link rel="canonical" href="https://1514597997.github.io/myblog/2025/11/22/%E6%9C%8D%E5%8A%A1%E5%99%A8/JWT/">
 
 
 <script id="page-configurations">
@@ -46,7 +46,7 @@
   };
 </script>
 
-  <title>Tomcat | 个人博客</title>
+  <title>JWT | 个人博客</title>
   
 
 
@@ -180,7 +180,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://1514597997.github.io/myblog/2025/11/06/%E5%B7%A5%E5%85%B7/hexo/tomcat/">
+    <link itemprop="mainEntityOfPage" href="https://1514597997.github.io/myblog/2025/11/22/%E6%9C%8D%E5%8A%A1%E5%99%A8/JWT/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/myblog/images/avatar.jpg">
@@ -193,7 +193,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Tomcat
+          JWT
         </h1>
 
         <div class="post-meta">
@@ -204,7 +204,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2025-11-06 20:36:11 / 修改时间：09:12:29" itemprop="dateCreated datePublished" datetime="2025-11-06T20:36:11+08:00">2025-11-06</time>
+              <time title="创建时间：2025-11-22 17:51:51 / 修改时间：18:29:49" itemprop="dateCreated datePublished" datetime="2025-11-22T17:51:51+08:00">2025-11-22</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -212,7 +212,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/myblog/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
+                  <a href="/myblog/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/" itemprop="url" rel="index"><span itemprop="name">服务器</span></a>
                 </span>
             </span>
 
@@ -227,48 +227,18 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="Tomcat"><a href="#Tomcat" class="headerlink" title="Tomcat"></a>Tomcat</h1><ul>
-<li><p>Apache Tomcat是由Apache Software Foundation（ASF）开发的一个开源Java WEB应用服务器</p>
-</li>
-<li><p>加载类和资源的顺序如下：</p>
-<ul>
-<li>&#x2F;Web-INF&#x2F;classes</li>
-<li>&#x2F;Web-INF&#x2F;lib&#x2F;*.jar</li>
-<li>Bootstrap</li>
-<li>System</li>
-<li>$CATALINA_HOME&#x2F;common&#x2F;classes</li>
-<li>$CATALINA_HOME&#x2F;common&#x2F;endores&#x2F;*.jar</li>
-<li>$CATALINA_HOME&#x2F;common&#x2F;lib&#x2F;*.jar</li>
-<li>$CATALINA_HOME&#x2F;shared&#x2F;classes</li>
-<li>$CATALINA_HOME&#x2F;shared&#x2F;lib&#x2F;*.jar</li>
-</ul>
-</li>
-<li><p>web.xml 配置标签</p>
-<ul>
-<li>servlet: 定义Servlet，包括Servlet名称、实现类、初始化参数等。</li>
-<li>servlet-mapping-: 映射Servlet到一个或多个URL模式。<ul>
-<li>url-pattern:配置指定路径映射Servlet<ul>
-<li>如果错误的配置会导致jsp或html成接口输出成纯文本<a target="_blank" rel="noopener" href="https://husama.github.io/2017/05/31/Spring-MVC%E5%AD%A6%E4%B9%A0%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98-JSP%E6%9C%AA%E6%B8%B2%E6%9F%93-%E7%9B%B4%E6%8E%A5%E6%98%BE%E7%A4%BA%E6%BA%90%E7%A0%81.html">类似</a></li>
+        <h1 id="JWT（JSON-Web-Token）"><a href="#JWT（JSON-Web-Token）" class="headerlink" title="JWT（JSON Web Token）"></a>JWT（JSON Web Token）</h1><p>一种基于特定规则的开放标准，用于在基于HTTP的应用程序上下文中进行认证和授权。<br>可用于单点验证用户，也可以用于用户认证和授权。<br>创建JWT后可以将其存储在cookie中，也可以将其存储在浏览器的localStorage中。后续在请求中将JWT发送给服务器，服务器会验证JWT，并返回响应。实现自动登录效果</p>
+<h1 id="介绍JWT结构"><a href="#介绍JWT结构" class="headerlink" title="介绍JWT结构"></a>介绍JWT结构</h1><ul>
+<li>JWT由3个部分组成<ul>
+<li>Header（头部）、指定算法和类型</li>
+<li>Payload（负载）、存放声明（Claims），如用户 ID、过期时间等</li>
+<li>Signature（签名）、保证前两部分不被篡改</li>
 </ul>
 </li>
 </ul>
-</li>
-<li>filter: 定义过滤器，用于在请求处理链中执行过滤任务。</li>
-<li>filter-mapping: 将过滤器应用到特定的URL模式。</li>
-<li>listener: 定义事件监听器，用于响应应用生命周期事件。</li>
-<li>session-config: 配置会话（Session）的超时时间。</li>
-<li>welcome-file-list: 定义当请求URL为目录时，应该显示哪个欢迎文件。</li>
-<li>error-page: 定义错误页面，用于处理特定错误码或异常类型。</li>
-<li>security-constraint: 定义安全约束，用于限制对特定URL模式的访问。</li>
-<li>login-config: 定义登录配置，用于指定验证方法和登录页面。</li>
-<li>DefaultServlet控制缓存<ul>
-<li>Tomcat默认不会为静态资源设置特定的缓存头</li>
-<li>web.xml配置使用过滤器CacheControlFilter去设置浏览器缓存行为</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
+<h1 id="JWT快速使用基本参考"><a href="#JWT快速使用基本参考" class="headerlink" title="JWT快速使用基本参考"></a>JWT快速使用基本参考</h1><figure class="highlight isbl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">JWT</span> = <span class="function"><span class="title">Base64Url</span>(<span class="variable">Header</span>) + <span class="string">&quot;.&quot;</span> + <span class="title">Base64Url</span>(<span class="variable">Payload</span>) + <span class="string">&quot;.&quot;</span> + <span class="title">Base64Url</span>(<span class="variable">Signature</span>)</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="也可以使用开源工具生成验证JWT结构"><a href="#也可以使用开源工具生成验证JWT结构" class="headerlink" title="也可以使用开源工具生成验证JWT结构"></a>也可以使用开源工具生成验证JWT结构</h1><p>列入：<a target="_blank" rel="noopener" href="https://jwt.p2hp.com/">jwt.io</a>、<a target="_blank" rel="noopener" href="https://doc.hutool.cn/pages/JWTUtil/#%E4%BB%8B%E7%BB%8D">huttool.js</a>都可以生成JWT</p>
 <link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css"><script src="https://fastly.jsdelivr.net/npm/d3@7"></script><script src="https://fastly.jsdelivr.net/npm/markmap-view@0.18.10"></script><script src="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10"></script>
 <link rel="stylesheet" href="/myblog/css/markmap.css">
 
@@ -288,13 +258,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/myblog/2025/11/06/%E5%B7%A5%E5%85%B7/hexo/Nginx/" rel="prev" title="Nginx">
-      <i class="fa fa-chevron-left"></i> Nginx
+    <a href="/myblog/2025/11/12/%E5%89%8D%E7%AB%AF/Vite/" rel="prev" title="vite前端构建工具">
+      <i class="fa fa-chevron-left"></i> vite前端构建工具
     </a></div>
-      <div class="post-nav-item">
-    <a href="/myblog/2025/11/06/%E5%B7%A5%E5%85%B7/hexo/node-js/" rel="next" title="node-js">
-      node-js <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -353,7 +320,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Tomcat"><span class="nav-number">1.</span> <span class="nav-text">Tomcat</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JWT%EF%BC%88JSON-Web-Token%EF%BC%89"><span class="nav-number">1.</span> <span class="nav-text">JWT（JSON Web Token）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%8B%E7%BB%8DJWT%E7%BB%93%E6%9E%84"><span class="nav-number">2.</span> <span class="nav-text">介绍JWT结构</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JWT%E5%BF%AB%E9%80%9F%E4%BD%BF%E7%94%A8%E5%9F%BA%E6%9C%AC%E5%8F%82%E8%80%83"><span class="nav-number">3.</span> <span class="nav-text">JWT快速使用基本参考</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B9%9F%E5%8F%AF%E4%BB%A5%E4%BD%BF%E7%94%A8%E5%BC%80%E6%BA%90%E5%B7%A5%E5%85%B7%E7%94%9F%E6%88%90%E9%AA%8C%E8%AF%81JWT%E7%BB%93%E6%9E%84"><span class="nav-number">4.</span> <span class="nav-text">也可以使用开源工具生成验证JWT结构</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -368,14 +335,14 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/myblog/archives">
-          <span class="site-state-item-count">38</span>
+          <span class="site-state-item-count">39</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/myblog/categories/">
           
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
   </nav>

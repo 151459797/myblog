@@ -177,6 +177,89 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://1514597997.github.io/myblog/2025/11/22/%E6%9C%8D%E5%8A%A1%E5%99%A8/JWT/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/myblog/images/avatar.jpg">
+      <meta itemprop="name" content="YaoHao">
+      <meta itemprop="description" content="使用hexo+next主题搭建的学习博客">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/myblog/2025/11/22/%E6%9C%8D%E5%8A%A1%E5%99%A8/JWT/" class="post-title-link" itemprop="url">JWT</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2025-11-22 17:51:51 / 修改时间：18:29:49" itemprop="dateCreated datePublished" datetime="2025-11-22T17:51:51+08:00">2025-11-22</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/myblog/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/" itemprop="url" rel="index"><span itemprop="name">服务器</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="JWT（JSON-Web-Token）"><a href="#JWT（JSON-Web-Token）" class="headerlink" title="JWT（JSON Web Token）"></a>JWT（JSON Web Token）</h1><p>一种基于特定规则的开放标准，用于在基于HTTP的应用程序上下文中进行认证和授权。<br>可用于单点验证用户，也可以用于用户认证和授权。<br>创建JWT后可以将其存储在cookie中，也可以将其存储在浏览器的localStorage中。后续在请求中将JWT发送给服务器，服务器会验证JWT，并返回响应。实现自动登录效果</p>
+<h1 id="介绍JWT结构"><a href="#介绍JWT结构" class="headerlink" title="介绍JWT结构"></a>介绍JWT结构</h1><ul>
+<li>JWT由3个部分组成<ul>
+<li>Header（头部）、指定算法和类型</li>
+<li>Payload（负载）、存放声明（Claims），如用户 ID、过期时间等</li>
+<li>Signature（签名）、保证前两部分不被篡改</li>
+</ul>
+</li>
+</ul>
+<h1 id="JWT快速使用基本参考"><a href="#JWT快速使用基本参考" class="headerlink" title="JWT快速使用基本参考"></a>JWT快速使用基本参考</h1><figure class="highlight isbl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">JWT</span> = <span class="function"><span class="title">Base64Url</span>(<span class="variable">Header</span>) + <span class="string">&quot;.&quot;</span> + <span class="title">Base64Url</span>(<span class="variable">Payload</span>) + <span class="string">&quot;.&quot;</span> + <span class="title">Base64Url</span>(<span class="variable">Signature</span>)</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="也可以使用开源工具生成验证JWT结构"><a href="#也可以使用开源工具生成验证JWT结构" class="headerlink" title="也可以使用开源工具生成验证JWT结构"></a>也可以使用开源工具生成验证JWT结构</h1><p>列入：<a target="_blank" rel="noopener" href="https://jwt.p2hp.com/">jwt.io</a>、<a target="_blank" rel="noopener" href="https://doc.hutool.cn/pages/JWTUtil/#%E4%BB%8B%E7%BB%8D">huttool.js</a>都可以生成JWT</p>
+<link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css"><script src="https://fastly.jsdelivr.net/npm/d3@7"></script><script src="https://fastly.jsdelivr.net/npm/markmap-view@0.18.10"></script><script src="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10"></script>
+<link rel="stylesheet" href="/myblog/css/markmap.css">
+
+<script src="/myblog/js/markmap.js"></script>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://1514597997.github.io/myblog/2025/11/12/%E5%89%8D%E7%AB%AF/Vite/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1272,164 +1355,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://1514597997.github.io/myblog/2025/11/07/%E5%90%8E%E7%AB%AF/JAVA/Java/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/myblog/images/avatar.jpg">
-      <meta itemprop="name" content="YaoHao">
-      <meta itemprop="description" content="使用hexo+next主题搭建的学习博客">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="个人博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/myblog/2025/11/07/%E5%90%8E%E7%AB%AF/JAVA/Java/" class="post-title-link" itemprop="url">Java编程语言</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2025-11-07 14:30:57 / 修改时间：16:15:25" itemprop="dateCreated datePublished" datetime="2025-11-07T14:30:57+08:00">2025-11-07</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/myblog/categories/%E5%90%8E%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">后端</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Java-面向对象编程语言"><a href="#Java-面向对象编程语言" class="headerlink" title="Java 面向对象编程语言"></a>Java 面向对象编程语言</h1><ul>
-<li>是一个面向对象的语言，同时基于JVM虚拟机支持跨平台运行。</li>
-<li>一次编译，多次运行。属于半编译半解释语言。</li>
-</ul>
-<h1 id="JVM"><a href="#JVM" class="headerlink" title="JVM"></a>JVM</h1><h2 id="JVM-Java-Virtual-Machine-在用户安装环境（JRE）或-Java-开发工具包（JDK）时会自带JVM。"><a href="#JVM-Java-Virtual-Machine-在用户安装环境（JRE）或-Java-开发工具包（JDK）时会自带JVM。" class="headerlink" title="JVM(Java Virtual Machine) 在用户安装环境（JRE）或 Java 开发工具包（JDK）时会自带JVM。"></a>JVM(Java Virtual Machine) 在用户安装环境（JRE）或 Java 开发工具包（JDK）时会自带JVM。</h2><h2 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h2><ul>
-<li>.java源代码文件通过Java编译器（javac）进行编译成.class字节码文件</li>
-</ul>
-<h2 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h2><h3 id="ClassLoader类加载"><a href="#ClassLoader类加载" class="headerlink" title="ClassLoader类加载"></a>ClassLoader类加载</h3><ul>
-<li>.class文件对应面向的是java虚拟机（JVM）的指令集运行</li>
-<li>类加载器ClassLoader将.class文件加载到JVM设置的内存当中。并将其转换为java.lang.Class对象。同时支持动态加载类。反射机制基于这个特点实现。</li>
-</ul>
-<h3 id="方法区（Method-Area）"><a href="#方法区（Method-Area）" class="headerlink" title="方法区（Method Area）"></a>方法区（Method Area）</h3><ul>
-<li>在JDK1.8版本废弃了永久代，替代的是元空间（MetaSpace），元空间与永久代上类似，都是方法区的实现，他们最大区别是：元空间并不在JVM中，而是使用本地内存。</li>
-<li>类型信息：存储了每个加载的类的全名、父类全名、修饰符、直接接口索引等信息。</li>
-<li>常量池：包括类中所有的常量信息，如字符串字面量、数值字面量等。</li>
-<li>字段信息：存储了类中所有字段的名称、类型、修饰符等信息。</li>
-<li>方法信息：存储了类中所有方法的名称、返回类型、参数、修饰符等信息，以及方法的字节码、操作数栈、局部变量表大小等。</li>
-<li>类变量：即静态变量，与类相关联，随着类的加载而加载，由类的所有实例共享。</li>
-<li>运行时常量池：类加载后，常量池表中的内容会存放到方法区的运行时常量池中。</li>
-</ul>
-<h3 id="堆（Heap）"><a href="#堆（Heap）" class="headerlink" title="堆（Heap）"></a>堆（Heap）</h3><ul>
-<li>JVM堆内存常用参数<ul>
-<li>-Xms	堆内存初始大小，单位m、g</li>
-<li>-Xmx（MaxHeapSize）	堆内存最大允许大小，一般不要大于物理内存的80%</li>
-<li>-XX:PermSize	非堆内存初始大小，一般应用设置初始化200m，最大1024m就够了 （在JDK1.8版本后废弃）</li>
-<li>-XX:MaxPermSize	非堆内存最大允许大小 （在JDK1.8版本后废弃）</li>
-<li>-XX:NewSize（-Xns）	年轻代内存初始大小</li>
-<li>-XX:MaxNewSize（-Xmn）	年轻代内存最大允许大小，也可以缩写</li>
-<li>-XX:SurvivorRatio&#x3D;8	年轻代中Eden区与Survivor区的容量比例值，默认为8，即8:1</li>
-<li>-Xss	堆栈内存大小</li>
-</ul>
-</li>
-<li>堆是JVM中内存最大的一块，同时也是垃圾收集器（Garbage Collector）管理的主要区域，负责回收这些对象。</li>
-<li>主要作用存放对象实例数组数据等。所有线程共享的内存区域</li>
-<li>需要注意管理好内存,否则可能引起内存溢出问题。</li>
-</ul>
-<h3 id="Java虚拟机栈（Java-Virtual-Machine-Stack）"><a href="#Java虚拟机栈（Java-Virtual-Machine-Stack）" class="headerlink" title="Java虚拟机栈（Java Virtual Machine Stack）"></a>Java虚拟机栈（Java Virtual Machine Stack）</h3><ul>
-<li>JVM栈的内存分配在JVM启动时确定，通常可以通过-Xss参数设置每个线程的栈大小。</li>
-<li>每个线程都有一个私有的栈，用于存储方法调用时的局部变量、操作数栈和动态链接信息</li>
-<li>JVM栈的生命周期与线程的生命周期相同。线程开始时，JVM栈被创建；线程结束时，JVM栈被销毁。</li>
-<li>局部变量表（Local Variable Table）<ul>
-<li>用于存储方法的参数和局部变量。</li>
-<li>每个局部变量占用一个槽（slot），槽的大小为32位。</li>
-<li>局部变量表的大小在方法编译时确定。</li>
-</ul>
-</li>
-<li>操作数栈（Operand Stack）<ul>
-<li>用于存储操作数和中间结果。</li>
-<li>操作数栈是一个后进先出的栈，其大小在方法执行时动态变化。</li>
-</ul>
-</li>
-<li>帧数据区（Frame Data Area）<ul>
-<li>包含方法的运行时常量池引用、方法的返回地址、异常处理表等信息。</li>
-<li>方法返回地址（Return Address）-帧数据区存储了方法返回时需要跳转到的地址。当方法执行完成（无论是正常返回还是异常终止），JVM会根据这个返回地址跳回到调用该方法的上一个栈帧</li>
-<li>动态链接（Dynamic Linking）帧数据区支持动态链接机制。当方法调用其他方法或访问字段时，JVM需要解析符号引用。如果这些引用尚未解析，JVM会在运行时动态解析它们</li>
-<li>异常表引用（Exception Table Reference）帧数据区还包含一个对异常表（Exception Table）的引用。异常表定义了方法中哪些字节码范围被哪些catch子句保护。当方法抛出异常时，JVM会通过异常表来确定是否能找到匹配的catch子句来处理异常</li>
-<li>常量池引用（Constant Pool Reference）帧数据区包含一个对当前方法所属类的运行时常量池的引用。这个引用用于支持常量池解析，即在执行字节码指令时，JVM可以通过这个引用访问常量池中的符号引用<ul>
-<li>程序计数器（Program Counter Register）</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>程序计数器是线程私有的，每个线程都有自己的程序计数器。线程之间的程序计数器互不干扰</li>
-<li>记录当前线程所执行的字节码指令地址</li>
-<li>当一个方法被调用时，程序计数器会保存方法的入口地址。当方法执行完毕后，程序计数器会恢复到调用方法时的地址，从而实现方法的返回<br>- 本地方法栈（Native Method Stack）</li>
-<li>和Java虚拟机栈基本一致，本地方法栈用于支持本地方法（即非Java语言编写的代码，如C或C++代码）的执行。当Java程序通过JNI（Java Native Interface）调用本地方法时，本地方法栈会管理这些本地方法的执行状态。<br>- 执行引擎（Execution Engine）</li>
-<li>负责将字节码指令解释&#x2F;编译为对应平台上的本地机器指令,执行引擎充当了将高级语言翻译为机器语言的译者。</li>
-<li>解释器（Interpreter）<ul>
-<li>逐条解释字节码指令，并将其转换为相应的机器指令执行。这是最基本的执行方式，简单但效率较低。</li>
-</ul>
-</li>
-<li>即时编译器（JIT Compiler）<ul>
-<li>将频繁执行的字节码编译为本地机器码，以提高执行速度。JIT编译器在运行时对热点代码进行优化编译，提升性能。</li>
-</ul>
-</li>
-<li>垃圾回收器（GC）<ul>
-<li>Java语言的核心技术特点</li>
-<li>和C++相比，会自动回收不再使用的对象，释放内存资源。防止对象占用内存过多，导致内存溢出和卡顿。</li>
-<li>以下是各个版本的回收器<ul>
-<li>JDK8:Parallel Scavenge（新生代）+ Parallel Old（老年代）</li>
-<li>JDK9到JDK21：G1（Garbage-First）</li>
-<li>JDK11后增加了：ZGC（Z Garbage Collector），但不是默认开启</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css"><script src="https://fastly.jsdelivr.net/npm/d3@7"></script><script src="https://fastly.jsdelivr.net/npm/markmap-view@0.18.10"></script><script src="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10"></script>
-<link rel="stylesheet" href="/myblog/css/markmap.css">
-
-<script src="/myblog/js/markmap.js"></script>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1500,14 +1425,14 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/myblog/archives">
-          <span class="site-state-item-count">38</span>
+          <span class="site-state-item-count">39</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/myblog/categories/">
           
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
   </nav>

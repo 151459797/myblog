@@ -177,6 +177,164 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://1514597997.github.io/myblog/2025/11/07/%E5%90%8E%E7%AB%AF/JAVA/Java/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/myblog/images/avatar.jpg">
+      <meta itemprop="name" content="YaoHao">
+      <meta itemprop="description" content="使用hexo+next主题搭建的学习博客">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/myblog/2025/11/07/%E5%90%8E%E7%AB%AF/JAVA/Java/" class="post-title-link" itemprop="url">Java编程语言</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2025-11-07 14:30:57 / 修改时间：16:15:25" itemprop="dateCreated datePublished" datetime="2025-11-07T14:30:57+08:00">2025-11-07</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/myblog/categories/%E5%90%8E%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">后端</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Java-面向对象编程语言"><a href="#Java-面向对象编程语言" class="headerlink" title="Java 面向对象编程语言"></a>Java 面向对象编程语言</h1><ul>
+<li>是一个面向对象的语言，同时基于JVM虚拟机支持跨平台运行。</li>
+<li>一次编译，多次运行。属于半编译半解释语言。</li>
+</ul>
+<h1 id="JVM"><a href="#JVM" class="headerlink" title="JVM"></a>JVM</h1><h2 id="JVM-Java-Virtual-Machine-在用户安装环境（JRE）或-Java-开发工具包（JDK）时会自带JVM。"><a href="#JVM-Java-Virtual-Machine-在用户安装环境（JRE）或-Java-开发工具包（JDK）时会自带JVM。" class="headerlink" title="JVM(Java Virtual Machine) 在用户安装环境（JRE）或 Java 开发工具包（JDK）时会自带JVM。"></a>JVM(Java Virtual Machine) 在用户安装环境（JRE）或 Java 开发工具包（JDK）时会自带JVM。</h2><h2 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h2><ul>
+<li>.java源代码文件通过Java编译器（javac）进行编译成.class字节码文件</li>
+</ul>
+<h2 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h2><h3 id="ClassLoader类加载"><a href="#ClassLoader类加载" class="headerlink" title="ClassLoader类加载"></a>ClassLoader类加载</h3><ul>
+<li>.class文件对应面向的是java虚拟机（JVM）的指令集运行</li>
+<li>类加载器ClassLoader将.class文件加载到JVM设置的内存当中。并将其转换为java.lang.Class对象。同时支持动态加载类。反射机制基于这个特点实现。</li>
+</ul>
+<h3 id="方法区（Method-Area）"><a href="#方法区（Method-Area）" class="headerlink" title="方法区（Method Area）"></a>方法区（Method Area）</h3><ul>
+<li>在JDK1.8版本废弃了永久代，替代的是元空间（MetaSpace），元空间与永久代上类似，都是方法区的实现，他们最大区别是：元空间并不在JVM中，而是使用本地内存。</li>
+<li>类型信息：存储了每个加载的类的全名、父类全名、修饰符、直接接口索引等信息。</li>
+<li>常量池：包括类中所有的常量信息，如字符串字面量、数值字面量等。</li>
+<li>字段信息：存储了类中所有字段的名称、类型、修饰符等信息。</li>
+<li>方法信息：存储了类中所有方法的名称、返回类型、参数、修饰符等信息，以及方法的字节码、操作数栈、局部变量表大小等。</li>
+<li>类变量：即静态变量，与类相关联，随着类的加载而加载，由类的所有实例共享。</li>
+<li>运行时常量池：类加载后，常量池表中的内容会存放到方法区的运行时常量池中。</li>
+</ul>
+<h3 id="堆（Heap）"><a href="#堆（Heap）" class="headerlink" title="堆（Heap）"></a>堆（Heap）</h3><ul>
+<li>JVM堆内存常用参数<ul>
+<li>-Xms	堆内存初始大小，单位m、g</li>
+<li>-Xmx（MaxHeapSize）	堆内存最大允许大小，一般不要大于物理内存的80%</li>
+<li>-XX:PermSize	非堆内存初始大小，一般应用设置初始化200m，最大1024m就够了 （在JDK1.8版本后废弃）</li>
+<li>-XX:MaxPermSize	非堆内存最大允许大小 （在JDK1.8版本后废弃）</li>
+<li>-XX:NewSize（-Xns）	年轻代内存初始大小</li>
+<li>-XX:MaxNewSize（-Xmn）	年轻代内存最大允许大小，也可以缩写</li>
+<li>-XX:SurvivorRatio&#x3D;8	年轻代中Eden区与Survivor区的容量比例值，默认为8，即8:1</li>
+<li>-Xss	堆栈内存大小</li>
+</ul>
+</li>
+<li>堆是JVM中内存最大的一块，同时也是垃圾收集器（Garbage Collector）管理的主要区域，负责回收这些对象。</li>
+<li>主要作用存放对象实例数组数据等。所有线程共享的内存区域</li>
+<li>需要注意管理好内存,否则可能引起内存溢出问题。</li>
+</ul>
+<h3 id="Java虚拟机栈（Java-Virtual-Machine-Stack）"><a href="#Java虚拟机栈（Java-Virtual-Machine-Stack）" class="headerlink" title="Java虚拟机栈（Java Virtual Machine Stack）"></a>Java虚拟机栈（Java Virtual Machine Stack）</h3><ul>
+<li>JVM栈的内存分配在JVM启动时确定，通常可以通过-Xss参数设置每个线程的栈大小。</li>
+<li>每个线程都有一个私有的栈，用于存储方法调用时的局部变量、操作数栈和动态链接信息</li>
+<li>JVM栈的生命周期与线程的生命周期相同。线程开始时，JVM栈被创建；线程结束时，JVM栈被销毁。</li>
+<li>局部变量表（Local Variable Table）<ul>
+<li>用于存储方法的参数和局部变量。</li>
+<li>每个局部变量占用一个槽（slot），槽的大小为32位。</li>
+<li>局部变量表的大小在方法编译时确定。</li>
+</ul>
+</li>
+<li>操作数栈（Operand Stack）<ul>
+<li>用于存储操作数和中间结果。</li>
+<li>操作数栈是一个后进先出的栈，其大小在方法执行时动态变化。</li>
+</ul>
+</li>
+<li>帧数据区（Frame Data Area）<ul>
+<li>包含方法的运行时常量池引用、方法的返回地址、异常处理表等信息。</li>
+<li>方法返回地址（Return Address）-帧数据区存储了方法返回时需要跳转到的地址。当方法执行完成（无论是正常返回还是异常终止），JVM会根据这个返回地址跳回到调用该方法的上一个栈帧</li>
+<li>动态链接（Dynamic Linking）帧数据区支持动态链接机制。当方法调用其他方法或访问字段时，JVM需要解析符号引用。如果这些引用尚未解析，JVM会在运行时动态解析它们</li>
+<li>异常表引用（Exception Table Reference）帧数据区还包含一个对异常表（Exception Table）的引用。异常表定义了方法中哪些字节码范围被哪些catch子句保护。当方法抛出异常时，JVM会通过异常表来确定是否能找到匹配的catch子句来处理异常</li>
+<li>常量池引用（Constant Pool Reference）帧数据区包含一个对当前方法所属类的运行时常量池的引用。这个引用用于支持常量池解析，即在执行字节码指令时，JVM可以通过这个引用访问常量池中的符号引用<ul>
+<li>程序计数器（Program Counter Register）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>程序计数器是线程私有的，每个线程都有自己的程序计数器。线程之间的程序计数器互不干扰</li>
+<li>记录当前线程所执行的字节码指令地址</li>
+<li>当一个方法被调用时，程序计数器会保存方法的入口地址。当方法执行完毕后，程序计数器会恢复到调用方法时的地址，从而实现方法的返回<br>- 本地方法栈（Native Method Stack）</li>
+<li>和Java虚拟机栈基本一致，本地方法栈用于支持本地方法（即非Java语言编写的代码，如C或C++代码）的执行。当Java程序通过JNI（Java Native Interface）调用本地方法时，本地方法栈会管理这些本地方法的执行状态。<br>- 执行引擎（Execution Engine）</li>
+<li>负责将字节码指令解释&#x2F;编译为对应平台上的本地机器指令,执行引擎充当了将高级语言翻译为机器语言的译者。</li>
+<li>解释器（Interpreter）<ul>
+<li>逐条解释字节码指令，并将其转换为相应的机器指令执行。这是最基本的执行方式，简单但效率较低。</li>
+</ul>
+</li>
+<li>即时编译器（JIT Compiler）<ul>
+<li>将频繁执行的字节码编译为本地机器码，以提高执行速度。JIT编译器在运行时对热点代码进行优化编译，提升性能。</li>
+</ul>
+</li>
+<li>垃圾回收器（GC）<ul>
+<li>Java语言的核心技术特点</li>
+<li>和C++相比，会自动回收不再使用的对象，释放内存资源。防止对象占用内存过多，导致内存溢出和卡顿。</li>
+<li>以下是各个版本的回收器<ul>
+<li>JDK8:Parallel Scavenge（新生代）+ Parallel Old（老年代）</li>
+<li>JDK9到JDK21：G1（Garbage-First）</li>
+<li>JDK11后增加了：ZGC（Z Garbage Collector），但不是默认开启</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css"><script src="https://fastly.jsdelivr.net/npm/d3@7"></script><script src="https://fastly.jsdelivr.net/npm/markmap-view@0.18.10"></script><script src="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10"></script>
+<link rel="stylesheet" href="/myblog/css/markmap.css">
+
+<script src="/myblog/js/markmap.js"></script>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://1514597997.github.io/myblog/2025/11/06/%E6%95%B0%E6%8D%AE%E5%BA%93/UnionAll/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -695,7 +853,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://1514597997.github.io/myblog/2025/11/06/%E5%B7%A5%E5%85%B7/hexo/node-js/">
+    <link itemprop="mainEntityOfPage" href="https://1514597997.github.io/myblog/2025/11/06/%E5%B7%A5%E5%85%B7/node-js/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/myblog/images/avatar.jpg">
@@ -709,7 +867,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/myblog/2025/11/06/%E5%B7%A5%E5%85%B7/hexo/node-js/" class="post-title-link" itemprop="url">node-js</a>
+            <a href="/myblog/2025/11/06/%E5%B7%A5%E5%85%B7/node-js/" class="post-title-link" itemprop="url">node-js</a>
         </h2>
 
         <div class="post-meta">
@@ -726,7 +884,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-11-12 12:25:16" itemprop="dateModified" datetime="2025-11-12T12:25:16+08:00">2025-11-12</time>
+                <time title="修改时间：2025-11-22 18:28:33" itemprop="dateModified" datetime="2025-11-22T18:28:33+08:00">2025-11-22</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -791,7 +949,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://1514597997.github.io/myblog/2025/11/06/%E5%B7%A5%E5%85%B7/hexo/tomcat/">
+    <link itemprop="mainEntityOfPage" href="https://1514597997.github.io/myblog/2025/11/06/%E6%9C%8D%E5%8A%A1%E5%99%A8/tomcat/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/myblog/images/avatar.jpg">
@@ -805,7 +963,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/myblog/2025/11/06/%E5%B7%A5%E5%85%B7/hexo/tomcat/" class="post-title-link" itemprop="url">Tomcat</a>
+            <a href="/myblog/2025/11/06/%E6%9C%8D%E5%8A%A1%E5%99%A8/tomcat/" class="post-title-link" itemprop="url">Tomcat</a>
         </h2>
 
         <div class="post-meta">
@@ -814,17 +972,23 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2025-11-06 20:36:11 / 修改时间：09:12:29" itemprop="dateCreated datePublished" datetime="2025-11-06T20:36:11+08:00">2025-11-06</time>
+              <time title="创建时间：2025-11-06 20:36:11" itemprop="dateCreated datePublished" datetime="2025-11-06T20:36:11+08:00">2025-11-06</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-11-22 18:26:30" itemprop="dateModified" datetime="2025-11-22T18:26:30+08:00">2025-11-22</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/myblog/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
+                  <a href="/myblog/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/" itemprop="url" rel="index"><span itemprop="name">服务器</span></a>
                 </span>
             </span>
 
@@ -904,7 +1068,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://1514597997.github.io/myblog/2025/11/06/%E5%B7%A5%E5%85%B7/hexo/Nginx/">
+    <link itemprop="mainEntityOfPage" href="https://1514597997.github.io/myblog/2025/11/06/%E6%9C%8D%E5%8A%A1%E5%99%A8/Nginx/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/myblog/images/avatar.jpg">
@@ -918,7 +1082,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/myblog/2025/11/06/%E5%B7%A5%E5%85%B7/hexo/Nginx/" class="post-title-link" itemprop="url">Nginx</a>
+            <a href="/myblog/2025/11/06/%E6%9C%8D%E5%8A%A1%E5%99%A8/Nginx/" class="post-title-link" itemprop="url">Nginx</a>
         </h2>
 
         <div class="post-meta">
@@ -935,7 +1099,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-11-17 23:00:34" itemprop="dateModified" datetime="2025-11-17T23:00:34+08:00">2025-11-17</time>
+                <time title="修改时间：2025-11-22 18:28:13" itemprop="dateModified" datetime="2025-11-22T18:28:13+08:00">2025-11-22</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -943,7 +1107,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/myblog/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
+                  <a href="/myblog/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/" itemprop="url" rel="index"><span itemprop="name">服务器</span></a>
                 </span>
             </span>
 
@@ -1077,7 +1241,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://1514597997.github.io/myblog/2025/11/06/%E5%B7%A5%E5%85%B7/hexo/hexo/">
+    <link itemprop="mainEntityOfPage" href="https://1514597997.github.io/myblog/2025/11/06/%E6%9C%8D%E5%8A%A1%E5%99%A8/hexo/hexo/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/myblog/images/avatar.jpg">
@@ -1091,7 +1255,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/myblog/2025/11/06/%E5%B7%A5%E5%85%B7/hexo/hexo/" class="post-title-link" itemprop="url">HEXO</a>
+            <a href="/myblog/2025/11/06/%E6%9C%8D%E5%8A%A1%E5%99%A8/hexo/hexo/" class="post-title-link" itemprop="url">HEXO</a>
         </h2>
 
         <div class="post-meta">
@@ -1108,7 +1272,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-11-07 11:32:47" itemprop="dateModified" datetime="2025-11-07T11:32:47+08:00">2025-11-07</time>
+                <time title="修改时间：2025-11-22 18:28:55" itemprop="dateModified" datetime="2025-11-22T18:28:55+08:00">2025-11-22</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1116,7 +1280,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/myblog/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
+                  <a href="/myblog/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/" itemprop="url" rel="index"><span itemprop="name">服务器</span></a>
                 </span>
             </span>
 
@@ -1158,7 +1322,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://1514597997.github.io/myblog/2025/11/06/%E5%90%8E%E7%AB%AF/cookie_token_session/">
+    <link itemprop="mainEntityOfPage" href="https://1514597997.github.io/myblog/2025/11/06/%E6%9C%8D%E5%8A%A1%E5%99%A8/cookie_token_session/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/myblog/images/avatar.jpg">
@@ -1172,7 +1336,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/myblog/2025/11/06/%E5%90%8E%E7%AB%AF/cookie_token_session/" class="post-title-link" itemprop="url">cookie_token_session</a>
+            <a href="/myblog/2025/11/06/%E6%9C%8D%E5%8A%A1%E5%99%A8/cookie_token_session/" class="post-title-link" itemprop="url">cookie_token_session</a>
         </h2>
 
         <div class="post-meta">
@@ -1181,17 +1345,23 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2025-11-06 20:36:11 / 修改时间：09:12:29" itemprop="dateCreated datePublished" datetime="2025-11-06T20:36:11+08:00">2025-11-06</time>
+              <time title="创建时间：2025-11-06 20:36:11" itemprop="dateCreated datePublished" datetime="2025-11-06T20:36:11+08:00">2025-11-06</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-11-22 18:30:11" itemprop="dateModified" datetime="2025-11-22T18:30:11+08:00">2025-11-22</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/myblog/categories/%E5%90%8E%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">后端</span></a>
+                  <a href="/myblog/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/" itemprop="url" rel="index"><span itemprop="name">服务器</span></a>
                 </span>
             </span>
 
@@ -1223,148 +1393,27 @@
 </li>
 <li>token<ul>
 <li>一种新型的身份验证方式，首先登录验证后，服务器根据用户信息生成token，比如：md5(手机号+签名+时间戳+密钥)</li>
-<li>用户在下次请求时携带token实现身份验证</li>
+<li>用户在下次请求时携带token实现身份验证<ul>
+<li>目前主流使用jwt的规则生成token，jwt的token是经过加密的，可以有效防止token被篡改，但是无法防止token被截取，只能通过有效期来防止token被滥用</li>
+<li>可参考<a href="../../../../../2025/11/22/%E6%9C%8D%E5%8A%A1%E5%99%A8/JWT/">jwt说明</a></li>
 </ul>
 </li>
-</ul>
-<link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css"><script src="https://fastly.jsdelivr.net/npm/d3@7"></script><script src="https://fastly.jsdelivr.net/npm/markmap-view@0.18.10"></script><script src="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10"></script>
-<link rel="stylesheet" href="/myblog/css/markmap.css">
-
-<script src="/myblog/js/markmap.js"></script>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://1514597997.github.io/myblog/2025/11/06/%E5%90%8E%E7%AB%AF/%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/myblog/images/avatar.jpg">
-      <meta itemprop="name" content="YaoHao">
-      <meta itemprop="description" content="使用hexo+next主题搭建的学习博客">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="个人博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/myblog/2025/11/06/%E5%90%8E%E7%AB%AF/%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">跨域</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2025-11-06 20:36:11" itemprop="dateCreated datePublished" datetime="2025-11-06T20:36:11+08:00">2025-11-06</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-11-17 22:56:35" itemprop="dateModified" datetime="2025-11-17T22:56:35+08:00">2025-11-17</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/myblog/categories/%E5%90%8E%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">后端</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="跨域问题"><a href="#跨域问题" class="headerlink" title="跨域问题"></a>跨域问题</h1><ul>
-<li>当A.com域名去请求b.com域名下的资源时就会遇到跨域问题，跨域限制主要是由浏览器的同源策略引起的<ul>
-<li>在东方精工项目中遇到使用iframe内嵌去浏览时遇到该问题，后续用户决定使用接口</li>
-<li>iframe内嵌标签：父、子窗口这两个页面不同源，但是却想在iframe中获取父窗口的dom,造成了跨域问题</li>
-</ul>
-</li>
-<li>详细参考 <a target="_blank" rel="noopener" href="https://blog.csdn.net/jined/article/details/120693745">CSDN</a>;这里就只介绍解决方法<ul>
-<li>前端解决方案<ul>
-<li><p>JSONP</p>
-<ul>
-<li>原理：利用 &lt;script&gt; 标签的 src 属性没有跨域限制的特性，通过动态创建 script 标签来加载跨域服务器上的数据。</li>
-<li>适用场景：只支持 GET 请求</li>
-<li>代码示例:<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=<span class="string">&quot;xxx&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    <span class="keyword">function</span> <span class="title function_">myCallback</span>(<span class="params">data</span>) &#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        <span class="variable language_">console</span>.<span class="title function_">log</span>(data);</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    &#125;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li><p>document.domain</p>
-<ul>
-<li>原理：通过设置 document.domain，使得主域相同但子域不同的页面能够共享 Cookie。</li>
-<li>适用场景：仅限主域相同，子域不同的跨域应用场景</li>
-<li>示例代码：<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">document</span>.<span class="property">domain</span> = <span class="string">&#x27;example.com&#x27;</span>;</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li><p>window.postMessage</p>
-<ul>
-<li>原理：通过 postMessage 方法实现不同源的窗口之间安全地交换信息。</li>
-<li>适用场景：可用于页面和其打开的新窗口、多窗口之间、页面与嵌套的 iframe 之间以及上述场景的跨域数据传递</li>
-<li>示例代码：<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 父窗口发送消息到子窗口</span></span><br><span class="line"><span class="keyword">var</span> childWindow = <span class="variable language_">window</span>.<span class="title function_">open</span>(<span class="string">&#x27;https://test2.com&#x27;</span>);</span><br><span class="line">childWindow.<span class="title function_">postMessage</span>(<span class="string">&#x27;Hello, child window!&#x27;</span>, <span class="string">&#x27;https://test2.com&#x27;</span>);</span><br><span class="line"><span class="comment">// 子窗口接收消息</span></span><br><span class="line"><span class="variable language_">window</span>.<span class="title function_">addEventListener</span>(<span class="string">&#x27;message&#x27;</span>, <span class="keyword">function</span>(<span class="params">event</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (event.<span class="property">origin</span> === <span class="string">&#x27;https://test1.com&#x27;</span>) &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;Received message from parent window: &#x27;</span> + event.<span class="property">data</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;, <span class="literal">false</span>);</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-</ul>
-</li>
-<li>后端解决方案<ul>
-<li>CORS（跨域资源共享）<ul>
-<li>原理：服务器在响应头中设置特定的 CORS 响应头，告诉浏览器允许哪些源访问其资源。</li>
-<li>适用场景：适用于所有需要跨域资源共享的场景，是最推荐的跨域解决方案</li>
-<li>示例代码：<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Access</span>-<span class="title class_">Control</span>-<span class="title class_">Allow</span>-<span class="title class_">Origin</span>: <span class="attr">https</span>:<span class="comment">//example.com</span></span><br><span class="line"><span class="title class_">Access</span>-<span class="title class_">Control</span>-<span class="title class_">Allow</span>-<span class="title class_">Methods</span>: <span class="variable constant_">GET</span>, <span class="variable constant_">POST</span>, <span class="variable constant_">PUT</span></span><br><span class="line"><span class="title class_">Access</span>-<span class="title class_">Control</span>-<span class="title class_">Allow</span>-<span class="title class_">Headers</span>: <span class="title class_">Content</span>-<span class="title class_">Type</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li>设置响应头<ul>
-<li>原理：后端直接在响应头中设置允许跨域的域名等信息。</li>
-<li>适用场景：适用于各种后端框架，如 Java Spring Boot、Node.js 等</li>
-<li>示例代码（SpringBoot）:<br>      <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">WebConfig</span> <span class="keyword">implements</span> <span class="title class_">WebMvcConfigurer</span> &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">addCorsMappings</span><span class="params">(CorsRegistry registry)</span> &#123;</span><br><span class="line">        registry.addMapping(<span class="string">&quot;/**&quot;</span>)</span><br><span class="line">                .allowedOrigins(<span class="string">&quot;*&quot;</span>)</span><br><span class="line">                .allowedMethods(<span class="string">&quot;GET&quot;</span>, <span class="string">&quot;POST&quot;</span>, <span class="string">&quot;PUT&quot;</span>, <span class="string">&quot;DELETE&quot;</span>)</span><br><span class="line">                .allowedHeaders(<span class="string">&quot;*&quot;</span>)</span><br><span class="line">                .allowCredentials(<span class="literal">true</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">                        </span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-</ul>
-</li>
-<li>推荐正式解决方案<ul>
-<li>Nginx 代理<ul>
-<li>原理：通过 Nginx 配置反向代理，将请求转发到目标服务器。</li>
-<li>适用场景：适用于生产环境，支持 session 管理，无需对现有代码进行修改</li>
-<li>示例配置参考</li>
+<li>参考使用代码<ul>
+<li>GlobalFilter登录验证</li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># HTTP模块配置</span></span><br><span class="line"><span class="string">http</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 虚拟主机配置</span></span><br><span class="line">    <span class="string">server</span> &#123;</span><br><span class="line">        <span class="comment"># 监听端口</span></span><br><span class="line">        <span class="string">listen</span>       <span class="number">8080</span><span class="string">;</span></span><br><span class="line">        <span class="comment"># 服务器名称</span></span><br><span class="line">        <span class="string">server_name</span>  <span class="string">localhost;</span></span><br><span class="line"></span><br><span class="line">		<span class="comment"># API代理配置</span></span><br><span class="line">		<span class="string">location</span> <span class="string">/api/</span> &#123;</span><br><span class="line">			<span class="comment"># 代理到后端服务，注意末尾的斜杠</span></span><br><span class="line">			<span class="string">proxy_pass</span> <span class="string">http://127.0.0.1:80/;</span></span><br><span class="line">			</span><br><span class="line">			<span class="comment"># 代理头设置</span></span><br><span class="line">			<span class="string">proxy_set_header</span> <span class="string">Host</span> <span class="string">$host;</span></span><br><span class="line">			<span class="string">proxy_set_header</span> <span class="string">X-Real-IP</span> <span class="string">$remote_addr;</span></span><br><span class="line">			<span class="string">proxy_set_header</span> <span class="string">X-Forwarded-For</span> <span class="string">$proxy_add_x_forwarded_for;</span></span><br><span class="line">			<span class="string">proxy_set_header</span> <span class="string">X-Forwarded-Proto</span> <span class="string">$scheme;</span></span><br><span class="line">			</span><br><span class="line">			<span class="comment"># 超时设置</span></span><br><span class="line">			<span class="string">proxy_connect_timeout</span> <span class="string">30s;</span></span><br><span class="line">			<span class="string">proxy_send_timeout</span> <span class="string">30s;</span></span><br><span class="line">			<span class="string">proxy_read_timeout</span> <span class="string">30s;</span></span><br><span class="line">			</span><br><span class="line">			<span class="comment"># 禁用缓冲</span></span><br><span class="line">			<span class="string">proxy_buffering</span> <span class="string">off;</span></span><br><span class="line">			</span><br><span class="line">			<span class="comment"># CORS 头 - 使用always参数确保所有响应都包含CORS头</span></span><br><span class="line">			<span class="string">add_header</span> <span class="string">Access-Control-Allow-Origin</span> <span class="string">&#x27;http://127.0.0.1:8080&#x27;</span> <span class="string">always;</span></span><br><span class="line">			<span class="string">add_header</span> <span class="string">Access-Control-Allow-Methods</span> <span class="string">&#x27;GET, POST, OPTIONS, PUT, DELETE&#x27;</span> <span class="string">always;</span></span><br><span class="line">			<span class="string">add_header</span> <span class="string">Access-Control-Allow-Headers</span> <span class="string">&#x27;*&#x27;</span> <span class="string">always;</span></span><br><span class="line">			<span class="string">add_header</span> <span class="string">Access-Control-Allow-Credentials</span> <span class="string">&#x27;true&#x27;</span> <span class="string">always;</span></span><br><span class="line">			</span><br><span class="line">			<span class="comment"># 处理 OPTIONS 预检请求</span></span><br><span class="line">			<span class="string">if</span> <span class="string">($request_method</span> <span class="string">=</span> <span class="string">&#x27;OPTIONS&#x27;</span><span class="string">)</span> &#123;</span><br><span class="line">				<span class="string">add_header</span> <span class="string">Access-Control-Allow-Origin</span> <span class="string">&#x27;http://127.0.0.1:8080&#x27;</span><span class="string">;</span></span><br><span class="line">				<span class="string">add_header</span> <span class="string">Access-Control-Allow-Methods</span> <span class="string">&#x27;GET, POST, OPTIONS, PUT, DELETE&#x27;</span><span class="string">;</span></span><br><span class="line">				<span class="string">add_header</span> <span class="string">Access-Control-Allow-Headers</span> <span class="string">&#x27;*&#x27;</span><span class="string">;</span></span><br><span class="line">				<span class="string">add_header</span> <span class="string">Access-Control-Max-Age</span> <span class="number">86400</span><span class="string">;</span></span><br><span class="line">				<span class="string">return</span> <span class="number">204</span><span class="string">;</span></span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.yhds.gateway.jwt;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.alibaba.fastjson2.JSONObject;</span><br><span class="line"><span class="keyword">import</span> com.model.util.yhdsJwtUtil;</span><br><span class="line"><span class="keyword">import</span> io.netty.util.internal.StringUtil;</span><br><span class="line"><span class="keyword">import</span> org.slf4j.Logger;</span><br><span class="line"><span class="keyword">import</span> org.slf4j.LoggerFactory;</span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.cloud.gateway.filter.GatewayFilterChain;</span><br><span class="line"><span class="keyword">import</span> org.springframework.cloud.gateway.filter.GlobalFilter;</span><br><span class="line"><span class="keyword">import</span> org.springframework.core.Ordered;</span><br><span class="line"><span class="keyword">import</span> org.springframework.core.io.buffer.DataBuffer;</span><br><span class="line"><span class="keyword">import</span> org.springframework.http.HttpStatus;</span><br><span class="line"><span class="keyword">import</span> org.springframework.http.server.reactive.ServerHttpResponse;</span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Component;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.server.ServerWebExchange;</span><br><span class="line"><span class="keyword">import</span> reactor.core.publisher.Mono;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.nio.charset.StandardCharsets;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * JWT基于WebFlux登录实现</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Administrator</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">JwtAuthenticationFilter</span> <span class="keyword">implements</span> <span class="title class_">GlobalFilter</span>, Ordered &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">Logger</span> <span class="variable">log</span> <span class="operator">=</span> LoggerFactory.getLogger(JwtAuthenticationFilter.class.getName());</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> yhdsJwtUtil yhdsJwtUtil;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> Mono&lt;Void&gt; <span class="title function_">filter</span><span class="params">(ServerWebExchange exchange, GatewayFilterChain chain)</span> &#123;</span><br><span class="line">        String url=exchange.getRequest().getPath().toString();</span><br><span class="line">        log.info(<span class="string">&quot;url&quot;</span>+url);</span><br><span class="line">        <span class="keyword">if</span>(url.contains(<span class="string">&quot;/user-service/&quot;</span>)||url.contains(<span class="string">&quot;/order-service/&quot;</span>))&#123;</span><br><span class="line">            <span class="keyword">if</span>(url.contains(<span class="string">&quot;/user-service/user/login&quot;</span>)||url.contains(<span class="string">&quot;/v3/api-docs&quot;</span>))&#123;</span><br><span class="line">                log.info(<span class="string">&quot;验证登录||获取api文档接口&quot;</span>);</span><br><span class="line">                <span class="keyword">return</span> chain.filter(exchange);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//获取请求头中的token</span></span><br><span class="line">            <span class="type">String</span> <span class="variable">token</span> <span class="operator">=</span> exchange.getRequest().getHeaders().getFirst(<span class="string">&quot;token&quot;</span>);</span><br><span class="line">            <span class="keyword">if</span> (StringUtil.isNullOrEmpty(token)||!yhdsJwtUtil.verify(token)) &#123;</span><br><span class="line">                log.info(<span class="string">&quot;未登录！&quot;</span>);</span><br><span class="line">                <span class="keyword">return</span> writeResponse(exchange.getResponse(),<span class="number">401</span>, <span class="string">&quot;未登录！&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        log.info(<span class="string">&quot;登录！&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> chain.filter(exchange);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">protected</span> Mono&lt;Void&gt; <span class="title function_">writeResponse</span><span class="params">(ServerHttpResponse response, Integer code, String msg)</span> &#123;</span><br><span class="line">        <span class="type">JSONObject</span> <span class="variable">message</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">JSONObject</span>();</span><br><span class="line">        message.put(<span class="string">&quot;code&quot;</span>, code);</span><br><span class="line">        message.put(<span class="string">&quot;msg&quot;</span>, msg);</span><br><span class="line">        <span class="type">byte</span>[] bits = message.toJSONString().getBytes(StandardCharsets.UTF_8);</span><br><span class="line">        <span class="type">DataBuffer</span> <span class="variable">buffer</span> <span class="operator">=</span> response.bufferFactory().wrap(bits);</span><br><span class="line">        response.setStatusCode(HttpStatus.OK);</span><br><span class="line">        response.getHeaders().add(<span class="string">&quot;Content-Type&quot;</span>, <span class="string">&quot;application/json;charset=UTF-8&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> response.writeWith(Mono.just(buffer));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">getOrder</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<pre><code>  - 登录基于hutool工具生成jwt与验证
+</code></pre>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.model.util;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> cn.hutool.core.date.DateUtil;</span><br><span class="line"><span class="keyword">import</span> cn.hutool.jwt.JWT;</span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Component;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">yhdsJwtUtil</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">String</span> <span class="variable">KEY</span> <span class="operator">=</span> <span class="string">&quot;yhds&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 获取token</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> name</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> password</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">getToken</span><span class="params">(String name,String password)</span> &#123;</span><br><span class="line">        JWT jwt=JWT.create().setIssuedAt(DateUtil.date()).setKey(KEY.getBytes());</span><br><span class="line">        jwt.addHeaders(Map.of(<span class="string">&quot;name&quot;</span>,name,<span class="string">&quot;password&quot;</span>,password));</span><br><span class="line">        <span class="keyword">return</span> jwt.sign();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">verify</span><span class="params">(String token)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> JWT.of(token).setKey(KEY.getBytes()).validate(<span class="number">30</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<pre><code>  - 登录生成token
+</code></pre>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> JSONObject <span class="title function_">login</span><span class="params">(String name,String password)</span>&#123;</span><br><span class="line">        <span class="type">JSONObject</span> <span class="variable">jsonObject</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">JSONObject</span>();</span><br><span class="line">        <span class="keyword">if</span>(baseMapper.queryUserLogin(name,password)&gt;<span class="number">0</span>)&#123;</span><br><span class="line">            jsonObject.put(<span class="string">&quot;msg&quot;</span>,<span class="string">&quot;登录验证成功&quot;</span>);</span><br><span class="line">            jsonObject.put(<span class="string">&quot;code&quot;</span>,<span class="number">200</span>);</span><br><span class="line">            jsonObject.put(<span class="string">&quot;token&quot;</span>,jwtUtil.getToken(name,password));</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            jsonObject.put(<span class="string">&quot;msg&quot;</span>,<span class="string">&quot;登录验证失败&quot;</span>);</span><br><span class="line">            jsonObject.put(<span class="string">&quot;code&quot;</span>,<span class="number">500</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> jsonObject;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css"><script src="https://fastly.jsdelivr.net/npm/d3@7"></script><script src="https://fastly.jsdelivr.net/npm/markmap-view@0.18.10"></script><script src="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10"></script>
 <link rel="stylesheet" href="/myblog/css/markmap.css">
 
@@ -1454,14 +1503,14 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/myblog/archives">
-          <span class="site-state-item-count">38</span>
+          <span class="site-state-item-count">39</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/myblog/categories/">
           
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
   </nav>
